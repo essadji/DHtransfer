@@ -9,15 +9,14 @@ let richtingLijst = '';
 $(document).ready(function () {
     opleidingenLijst = getOpleidingenLijst();
     $('#courses-slider').html(opleidingenLijst);
-
-    bindEvents();
-});
-
-function bindEvents() {
     $('#campus').bind("click", function () {
         $('#courses-slider').html(opleidingenLijst);
+        bindCardsEvents();
     });
+    bindCardsEvents();
+});
 
+function bindCardsEvents() {
     for (let opleiding in Opleidingen) {
         let id = "#" + opleiding;
         $(id).bind("click", function () {
@@ -25,14 +24,16 @@ function bindEvents() {
         });
     }
 }
+
 function showDetails(opleiding) {
     let afstudeerrichtingen = Object.keys(Opleidingen[opleiding]['Afstudeerrichtingen']);
-
+    richtingLijst = "";
     //Get all directions per richting
     for (let i = 0; i < afstudeerrichtingen.length; i++) {
         let afstudeerRichting = afstudeerrichtingen[i];
         let diplomaLijst = Opleidingen[opleiding].Afstudeerrichtingen[afstudeerRichting].Diploma;
-        richtingLijst += '<div  id="' + afstudeerRichting + '"' + htmlBegin + afstudeerRichting + htmlMidle + diplomaLijst + htmlEnd;
+        let templijst = diplomaLijst.replace(" | ", "<br>");
+        richtingLijst += '<div  id="' + afstudeerRichting + '"' + htmlBegin + afstudeerRichting + htmlMidle + templijst + htmlEnd;
         $('#courses-slider').html(richtingLijst);
     }
 }

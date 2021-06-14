@@ -27,7 +27,7 @@ let Opleidingen = {
         Name: 'Elektrotechniek',
         Diploma: ''
       },
-      CleantechDuurzameEnergie: {
+      'Cleantech Duurzame-Energie': {
         Name: 'Cleantech-Duurzame Energie',
         Diploma: ''
       },
