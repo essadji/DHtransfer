@@ -4,26 +4,19 @@ let Opleidingen = {
     Afstudeerrichtingen: {
       Onderhoudstechnologie: {
         Name: 'Onderhoudstechnologie',
-        Bachelor:
-          'Professionele Bachelor Elektromechanica - Onderhoudstechnologie',
-        Graduaat:
-          'Graduaat ElektroMechanische Systemen - Onderhoudstechnologie',
+        Diploma: 'Professionele Bachelor Elektromechanica - Onderhoudstechnologie | Graduaat ElektroMechanische Systemen - Onderhoudstechnologie'
       },
       Automatisering: {
         Name: 'Automatisering',
-        Bachelor: 'Professionele Bachelor Elektromechanica - Automatisering',
-        Graduaat:
-          'Graduaat ElektroMechanische Systemen - Meet- en Regeltechnieken',
+        Diploma: 'Professionele Bachelor Elektromechanica - Automatisering | Graduaat ElektroMechanische Systemen - Meet- en Regeltechnieken'
       },
       Klimatisering: {
         Name: 'Klimatisering',
-        Bachelor: 'Professionele Bachelor Elektromechanica - Klimatisering',
-        Graduaat: 'Graduaat HVAC-Systemen,',
+        Diploma: 'Professionele Bachelor Elektromechanica - Klimatisering | Graduaat HVAC-Systemen'
       },
       Elektromechanica: {
         Name: 'Elektromechanica',
-        Bachelor: 'Professionele Bachelor Elektromechanica - Elektromechanica',
-        Graduaat: '',
+        Diploma: 'Professionele Bachelor Elektromechanica - Elektromechanica'
       },
     },
   },
@@ -32,13 +25,11 @@ let Opleidingen = {
     Afstudeerrichtingen: {
       Elektrotechniek: {
         Name: 'Elektrotechniek',
-        Bachelor: '',
-        Graduaat: '',
+        Diploma: ''
       },
       CleantechDuurzameEnergie: {
         Name: 'Cleantech-Duurzame Energie',
-        Bachelor: '',
-        Graduaat: '',
+        Diploma: ''
       },
     },
   },
@@ -47,13 +38,11 @@ let Opleidingen = {
     Afstudeerrichtingen: {
       Elektronica: {
         Name: 'Elektronica',
-        Bachelor: 'Professionele Bachelor Elektronica-ICT - Elektronica',
-        Graduaat: '',
+        Diploma: 'Professionele Bachelor Elektronica-ICT - Elektronica'
       },
       ICT: {
         Name: 'ICT',
-        Bachelor: 'Professionele Bachelor Elektronica-ICT - ICT',
-        Graduaat: 'Graduaat IoT',
+        Diploma: 'Professionele Bachelor Elektronica-ICT - ICT | Graduaat IoT'
       },
     },
   },
@@ -62,23 +51,19 @@ let Opleidingen = {
     Afstudeerrichtingen: {
       Procestechnologie: {
         Name: 'Chemie',
-        Bachelor: '',
-        Graduaat: '',
+        Diploma: ''
       },
       Milieutechnologie: {
         Name: 'Milieutechnologie',
-        Bachelor: '',
-        Graduaat: '',
+        Diploma: ''
       },
       Chemie: {
         Name: 'Chemie',
-        Bachelor: '',
-        Graduaat: '',
+        Diploma: ''
       },
       Biochemie: {
         Name: 'Biochemie',
-        Bachelor: '',
-        Graduaat: '',
+        Diploma: ''
       },
     },
   },

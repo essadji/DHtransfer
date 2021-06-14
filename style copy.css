@@ -4,7 +4,6 @@
 }
 body {
   background-image: url('images/diepenbeek2020_header_0.png');
-  background-color: #555555;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
@@ -13,21 +12,25 @@ body {
 #element:-webkit-full-screen {
   width: 100%;
   height: 100%;
+  background-color: pink;
   margin: 0;
 }
 
 #element:-moz-full-screen {
+  background-color: pink;
   margin: 0;
 }
 
 #element:-ms-fullscreen {
-  margin: 0;
-}
-/* W3C proposal that will eventually come in all browsers */
-#element:fullscreen {
+  background-color: pink;
   margin: 0;
 }
 
+/* W3C proposal that will eventually come in all browsers */
+#element:fullscreen {
+  background-color: pink;
+  margin: 0;
+}
 .grid {
   height: 100vh;
   width: 100vw;
@@ -40,25 +43,27 @@ body {
 .grid-item {
   display: grid;
   place-items: center;
+  width: 50%;
   height: 95vh;
 }
 
 .title-text {
-  color: #e80444;
-  background-color: rgba(255, 255, 255, 0.8);
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.25);
   padding-left: 15px;
   width: 90%;
   border-radius: 25px;
 }
-.title-text h4 {
-  color: #44474b;
-}
+
 .slider-wrap {
-  height: auto;
+  height: 100%;
+  width: 100%;
 }
 .slider-wrap .slider {
-  display: grid;
-  justify-content: center;
+  /*position: absolute;*/
+  width: 100%;
+  left: 50px;
+  top: 50px;
 }
 
 .slider-item {
@@ -69,7 +74,15 @@ body {
   display: flex;
   justify-content: center;
   z-index: 0;
+  /*temp*/
   margin-bottom: 25px;
+  /*
+  position: absolute;
+  opacity: 0;
+  box-shadow: 0 4px 9px #f1f1f4;
+  position: absolute;
+  left: 0;
+  top: 0;*/
 }
 .slider-item .animation-card_content {
   width: 100%;
