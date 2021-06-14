@@ -47,11 +47,12 @@ function getOpleidingenLijst() {
         let afstudeerrichtingenLijst = '';
         let afstudeerrichtingen = Object.keys(Opleidingen[opleiding]['Afstudeerrichtingen']);
 
-        //Get all directions per opleiding
+        // Get all directions per opleiding
         for (let i = 0; i < afstudeerrichtingen.length; i++) {
             let afstudeerRichting = afstudeerrichtingen[i];
             afstudeerrichtingenLijst += Opleidingen[opleiding].Afstudeerrichtingen[afstudeerRichting].Name + ' | ';
         }
+        // afstudeerrichtingen.map(richting=>{afstudeerrichtingenLijst+=Opleidingen[opleiding].Afstudeerrichtingen[richting].Name + ' | '})
 
         afstudeerrichtingenLijst = afstudeerrichtingenLijst.substring(0, afstudeerrichtingenLijst.length - 2);
         opleidingenCards += '<div  id="' + opleiding + '"' + htmlBegin + opleiding + htmlMidle + afstudeerrichtingenLijst + htmlEnd;
