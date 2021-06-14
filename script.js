@@ -12,6 +12,7 @@ $(document).ready(function () {
     $('#campus').bind("click", function () {
         $('#courses-slider').html(opleidingenLijst);
         bindCardsEvents();
+        GoInFullscreen();
     });
     bindCardsEvents();
 });
@@ -58,7 +59,8 @@ function getOpleidingenLijst() {
     return opleidingenCards;
 }
 
-function GoInFullscreen(element) {
+function GoInFullscreen() {
+    let element = document.getElementById("content");
     if (element.requestFullscreen)
         element.requestFullscreen().catch(err => {
             alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
