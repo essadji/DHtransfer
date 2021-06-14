@@ -25,11 +25,11 @@ let Opleidingen = {
     Afstudeerrichtingen: {
       Elektrotechniek: {
         Name: 'Elektrotechniek',
-        Diploma: ''
+        Diploma: 'Professionele Bachelor Energietechnologie - Elektrotechniek'
       },
-      'Cleantech Duurzame-Energie': {
-        Name: 'Cleantech-Duurzame Energie',
-        Diploma: ''
+      'Cleantech - Duurzame Energie': {
+        Name: 'Cleantech Duurzame Energie',
+        Diploma: 'Professionele Bachelor Energietechnologie - Cleantech - Duurzame Energie'
       },
     },
   },
@@ -42,28 +42,28 @@ let Opleidingen = {
       },
       ICT: {
         Name: 'ICT',
-        Diploma: 'Professionele Bachelor Elektronica-ICT - ICT | Graduaat IoT'
+        Diploma: 'Professionele Bachelor Elektronica-ICT - ICT | Graduaat Internet of things'
       },
     },
   },
   Chemie: {
     Opleiding: 'Chemie',
     Afstudeerrichtingen: {
-      Procestechnologie: {
-        Name: 'Chemie',
-        Diploma: ''
-      },
-      Milieutechnologie: {
-        Name: 'Milieutechnologie',
-        Diploma: ''
+      Biochemie: {
+        Name: 'Biochemie',
+        Diploma: ' Professionele Bachelor Chemie - Biochemie'
       },
       Chemie: {
         Name: 'Chemie',
-        Diploma: ''
+        Diploma: 'Professionele Bachelor Chemie'
       },
-      Biochemie: {
-        Name: 'Biochemie',
-        Diploma: ''
+      Milieutechnologie: {
+        Name: 'Milieutechnologie',
+        Diploma: 'Professionele Bachelor Chemie - Milieutechnologie'
+      },
+      Procestechnologie: {
+        Name: 'Procestechnologie',
+        Diploma: 'Professionele Bachelor Chemie - Procestechnologie'
       },
     },
   },
