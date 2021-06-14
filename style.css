@@ -2,11 +2,14 @@
 * {
   box-sizing: border-box;
 }
-body {
-  background-image: url('images/diepenbeek2020_header_0.png');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
+html {
+  background: url('images/diepenbeek2020_header_0.png') no-repeat center center
+    fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
   margin: 0;
 }
 
@@ -22,27 +25,25 @@ body {
 .grid-item {
   display: grid;
   place-items: center;
-  width: 50%;
   height: 95vh;
 }
 
 .title-text {
-  color: #ffffff;
-  background-color: rgba(0, 0, 0, 0.25);
+  color: #e80444;
+  background-color: rgba(255, 255, 255, 0.8);
   padding-left: 15px;
   width: 90%;
   border-radius: 25px;
 }
-
+.title-text h4 {
+  color: #44474b;
+}
 .slider-wrap {
-  height: 100%;
-  width: 100%;
+  height: auto;
 }
 .slider-wrap .slider {
-  position: absolute;
-  width: 100%;
-  left: 50px;
-  top: 50px;
+  display: grid;
+  justify-content: center;
 }
 
 .slider-item {
@@ -52,13 +53,8 @@ body {
   background-color: #ffffff;
   display: flex;
   justify-content: center;
-  position: absolute;
-  opacity: 0;
   z-index: 0;
-  box-shadow: 0 4px 9px #f1f1f4;
-  position: absolute;
-  left: 0;
-  top: 0;
+  margin-bottom: 25px;
 }
 .slider-item .animation-card_content {
   width: 100%;
