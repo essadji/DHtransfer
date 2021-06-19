@@ -4,8 +4,8 @@
 
 //#region TEMPLATE
 
-const camera_template = document.createElement('template');
-camera_template.innerHTML = /* html */ `
+const emotion_control_template = document.createElement('template');
+emotion_control_template.innerHTML = /* html */ `
 <style>
     h2{
         margin: 15px;
@@ -45,7 +45,7 @@ window.customElements.define('page-selector-ɮ', class extends HTMLElement {
     constructor() {
         super();
         this._shadowRoot = this.attachShadow({ 'mode': 'open' });
-        this._shadowRoot.appendChild(camera_template.content.cloneNode(true));
+        this._shadowRoot.appendChild(emotion_control_template.content.cloneNode(true));
         this.$test = this._shadowRoot.querySelectorAll('button');
         this.socket = new WebSocket('ws://essadji.be:2105');
     }

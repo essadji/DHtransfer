@@ -41,7 +41,6 @@ window.customElements.define('camera-ɮ', class extends HTMLElement {
         this._shadowRoot = this.attachShadow({ 'mode': 'open' });
         this._shadowRoot.appendChild(camera_template.content.cloneNode(true));
         this.$videoElement = this._shadowRoot.querySelectorAll('#videoElement');
-        this.socket = new WebSocket('ws://essadji.be:2105');
     }
 
     connectedCallback() {

@@ -16,7 +16,8 @@
 # FEATURES
 ## Control Page
 - eye control
-- page switch
+- page switch [Done]
+- camera feed
 ## Face page
 ## Navigation page
 - navigation clickthrough

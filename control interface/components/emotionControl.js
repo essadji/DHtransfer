@@ -1,27 +1,34 @@
 //#region IMPORTS
-import "./components/pageSelector.js";
-import "./components/camera.js";
-import "./components/emotionControl.js";
+
 //#endregion IMPORTS
 
 //#region TEMPLATE
 
-const pageSelector_template = document.createElement('template');
-pageSelector_template.innerHTML = /* html */ `
+const emotion_control_template = document.createElement('template');
+emotion_control_template.innerHTML = /* html */ `
+<style>
+    h2{
+        margin: 15px;
+        color: var(--ucll-red);
+    }
 
-<page-selector-ɮ></page-selector-ɮ>
-<camera-ɮ></camera-ɮ>
-<emotion-control-ɮ></emotion-control-ɮ>
- <!--  </body> -->
+</style>
+
+<div>
+    <h2>Control eyes:</h2>
+
+</div>
+<hr/>
+<!--  </body> -->
 `;
 //#endregion TEMPLATE
 
 //#region CLASS
-window.customElements.define('j_con-ɮ', class extends HTMLElement {
+window.customElements.define('emotion-control-ɮ', class extends HTMLElement {
     constructor() {
         super();
         this._shadowRoot = this.attachShadow({ 'mode': 'open' });
-        this._shadowRoot.appendChild(pageSelector_template.content.cloneNode(true));
+        this._shadowRoot.appendChild(emotion_control_template.content.cloneNode(true));
         this.socket = new WebSocket('ws://essadji.be:2105');
     }
 
