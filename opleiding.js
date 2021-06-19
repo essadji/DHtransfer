@@ -72,4 +72,4 @@ window.customElements.define('opleiding-ʤ', class extends HTMLElement {
   }
 
 });
-  //#endregion CLASS
+//#endregion CLASS
