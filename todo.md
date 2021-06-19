@@ -11,6 +11,7 @@
 # MAYBE
 - Playstation eye control
 - login (Kenny+?)
+- camera
 ---
 # FEATURES
 ## Control Page
