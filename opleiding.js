@@ -5,10 +5,38 @@
 const opleiding_template = document.createElement('template');
 opleiding_template.innerHTML = /* html */ `
   <style>
-   	/* @import "./opleiding.css"; */
-     div {
-
-     }
+    .slider-item {
+      width: 630px;
+      padding: 20px 0 25px 30px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      z-index: 0;
+      margin-bottom: 25px;
+    }
+    .slider-item .animation-card_content {
+      width: 100%;
+      margin-right: 26px;
+      margin-left: 26px;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .slider-item .animation-card_content .animation-card_content_title {
+      color: var(--ucll-red);
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -0.18px;
+      line-height: 24px;
+      margin: 0;
+    }
+    .slider-item .animation-card_content .animation-card_content_description {
+      color: #696d74;
+      font-size: 15px;
+      font-weight: 300;
+      letter-spacing: normal;
+      line-height: 24px;
+      margin: 10px 0 0 0;
+    }
   </style>
 
   <div id="Elektromechanica" class="slider-item title-text">
@@ -22,29 +50,29 @@ opleiding_template.innerHTML = /* html */ `
 
 //#region CLASS
 window.customElements.define('opleiding-ʤ', class extends HTMLElement {
-    constructor() {
-        super();
-        this._shadowRoot = this.attachShadow({ 'mode': 'open' });
-        this._shadowRoot.appendChild(opleiding_template.content.cloneNode(true));
-        this.$content = this._shadowRoot.querySelector('#content');
-        this.$comments = this._shadowRoot.querySelector('#comments');
-    }
+  constructor() {
+    super();
+    this._shadowRoot = this.attachShadow({ 'mode': 'open' });
+    this._shadowRoot.appendChild(opleiding_template.content.cloneNode(true));
+    this.$content = this._shadowRoot.querySelector('#content');
+    this.$comments = this._shadowRoot.querySelector('#comments');
+  }
 
-    static get observedAttributes() {
-        return ['sub'];
-    }
+  static get observedAttributes() {
+    return ['sub'];
+  }
 
-    set content(x) {
-        this.$content.innerHTML = x;
-    }
+  set content(x) {
+    this.$content.innerHTML = x;
+  }
 
-    attributeChangedCallback(name, oldValue, newValue) {
-        switch (name) {
-            case 'sub':
+  attributeChangedCallback(name, oldValue, newValue) {
+    switch (name) {
+      case 'sub':
 
-                break;
-        }
+        break;
     }
+  }
 
 });
   //#endregion CLASS
