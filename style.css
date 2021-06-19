@@ -1,6 +1,12 @@
 body {
-  margin: 0px;
+  margin: 0px; 
 }
+
+/* PSEUDO-selector for fullscreen background definition
+*::backdrop{ 
+  background:white;
+}
+*/
 
 :root {
   --essadji: hotpink;
