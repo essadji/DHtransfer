@@ -5,8 +5,9 @@
 //#region TEMPLATE
 const J_con_template = document.createElement('template');
 J_con_template.innerHTML = /* html */ `
-  <button id="message">test 1</button>
-  <button id="test">test 2</button>
+  <button id="message">random message</button>
+  <button id="test">send id</button>
+  <button id="clients">client request</button>
  <!--  </body> -->
 `;
 //#endregion TEMPLATE

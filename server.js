@@ -8,8 +8,12 @@ wss.on('connection', function connection(ws) {
         switch (message) {
             case 'test':
                 console.log(`I've been tested with ${message}`)
-                ws.emit(`I've been tested with ${message}`)
+                // wss.emit(`I've been tested with ${message}`)
                 break;
+                case 'clients':
+                    console.log(wss.clients)
+                    wss.clients.forEach(c=>c.send("list requested"))
+                    break;
                 default:
         }
     });
