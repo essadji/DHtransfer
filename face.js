@@ -14,8 +14,8 @@ face_template.innerHTML = /*html*/`
   </style>
 
  <svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="500 2500 1300 1500" style="enable-background:new 0 0 4500 4000;" xml:space="preserve">
-
+	 viewBox="500 2550 1300 940"  xml:space="preserve">
+<!-- style="enable-background:new 0 0 4500 4000;" -->
 <g id="background">
 </g>
 <g id="Art_Work">
@@ -175,7 +175,6 @@ face_template.innerHTML = /*html*/`
 	</g>
 </g>
 </svg>
-<div id="test">TEST</div>
 
 
 `;
@@ -189,7 +188,6 @@ window.customElements.define('face-ʤ', class extends HTMLElement {
 		this._shadowRoot.appendChild(face_template.content.cloneNode(true));
 		this.$svg = this._shadowRoot.querySelector('#svg');
 		this.$pupil_L = this._shadowRoot.querySelector('#pupil_L');
-		this.$test = this._shadowRoot.querySelector('div');
 		this.socket = new WebSocket('ws://essadji.be:2105');
 
 
@@ -204,7 +202,7 @@ window.customElements.define('face-ʤ', class extends HTMLElement {
 			console.log("opening socket...")
 			this.socket.send('Hello Server!');
 		});
-		this.socket.addEventListener('message', function (event) {
+		this.socket.addEventListener('message', (event) => {
 			console.log('Message from server ', event.data);
 		});
 

@@ -8,18 +8,15 @@ wss.on('connection', function connection(ws) {
         switch (message) {
             case 'btnTest':
                 console.log(`I've been tested with ${message}`)
-                // wss.emit(`I've been tested with ${message}`)
                 break;
             case 'btnClients':
                 console.log(wss.clients)
-                // wss.clients.forEach(c=>c.send("list requested"))
+                wss.clients.forEach(c=>c.send("list requested"))
                 break;
             case 'btnFace':
-                console.log(wss.clients)
                 wss.clients.forEach(c => c.send("face"))
                 break;
             case 'btnInterface':
-                console.log(wss.clients)
                 wss.clients.forEach(c => c.send("interface"))
                 break;
             default:
