@@ -13,7 +13,7 @@ opleiding_template.innerHTML = /* html */ `
 
   <div id="Elektromechanica" class="slider-item title-text">
     <div class="animation-card_content">
-      <h4 class="animation-card_content_title title-2">Elektromechanica</h4>
+      <h4 class="animation-card_content_title title-2"><slot id="richting"></slot></h4>
         <p class="animation-card_content_description p-2">Onderhoudstechnologie | Automatisering | Klimatisering | Elektromechanica </p>
     </div>
   </div>

@@ -7,7 +7,7 @@ const james_template = document.createElement('template');
 james_template.innerHTML = /* html */ `
   <link rel="stylesheet" href="./james.css" />
 
-  <body>
+  <!-- <body> -->
     <div id="content" class="grid">
       <div class="grid-item">
         <div id="campus" class="title-text">
@@ -23,7 +23,7 @@ james_template.innerHTML = /* html */ `
         </div>
       </div>
     </div>
-  </body>
+ <!--  </body> -->
 `;
 //#endregion TEMPLATE
 
@@ -34,17 +34,18 @@ window.customElements.define('james-ʤ', class extends HTMLElement {
         this._shadowRoot = this.attachShadow({ 'mode': 'open' });
         this._shadowRoot.appendChild(james_template.content.cloneNode(true));
         this.$content = this._shadowRoot.querySelector('#content');
-        this.$comments = this._shadowRoot.querySelector('#comments');
       fetch("opleidingen.json")
         .then(response => response.json())
         .then(json => {this.opleidingen = json; Object.keys(json).map((opleiding=>{
-          console.log(opleiding)
+          // console.log(opleiding)
           
             let o = document.createElement('opleiding-ʤ');
+            o.innerHTML = opleiding;
+            o.id = opleiding;
            
             o.addEventListener('click', (x) => {
               // c[i].setAttribute('active','');
-              console.log("ckick!")
+              console.log("click!")
             })
           this.shadowRoot.querySelector('#courses-slider').appendChild(o)
         }))});
@@ -52,7 +53,7 @@ window.customElements.define('james-ʤ', class extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ['sub'];
+        return ['kenny'];
     }
 
     set content(x) {
@@ -61,7 +62,7 @@ window.customElements.define('james-ʤ', class extends HTMLElement {
 
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
-            case 'sub':
+            case 'kenny':
 
                 break;
         }
