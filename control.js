@@ -3,11 +3,14 @@
 //#endregion IMPORTS
 
 //#region TEMPLATE
+
 const J_con_template = document.createElement('template');
 J_con_template.innerHTML = /* html */ `
-  <button id="message">random message</button>
-  <button id="test">send id</button>
-  <button id="clients">client request</button>
+  <button id="btnMessage">random message</button>
+  <button id="btnTest">send id</button>
+  <button id="btnClients">client request</button>
+  <button id="btnInterface">show interface</button>
+  <button id="btnFace" hidden>show face</button>
  <!--  </body> -->
 `;
 //#endregion TEMPLATE

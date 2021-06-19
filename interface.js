@@ -3,19 +3,37 @@ import "./opleiding.js";
 //#endregion IMPORTS
 
 //#region TEMPLATE
-const james_template = document.createElement('template');
-james_template.innerHTML = /* html */ `
-<face-ʤ></face-ʤ>
-<interface-ʤ></interface-ʤ>
+const interface_template = document.createElement('template');
+interface_template.innerHTML = /* html */ `
+
+  <link rel="stylesheet" href="./james.css" />
+
+  <!-- <body> -->
+    <div id="content" class="grid">
+      <div class="grid-item">
+        <div id="campus" class="title-text">
+          <h1>CAMPUS DIEPENBEEK</h1>
+          <h4>TECHNOLOGIE</h4>
+        </div>
+      </div>
+      <div class="grid-item">
+       <div class="slider-wrap">
+          <div id="courses-slider" class="slider">
+            <!--Component insertion here-->
+          </div>
+        </div>
+      </div>
+    </div>
+ <!--  </body> -->
 `;
 //#endregion TEMPLATE
 
 //#region CLASS
-window.customElements.define('james-ʤ', class extends HTMLElement {
+window.customElements.define('interface-ʤ', class extends HTMLElement {
     constructor() {
         super();
         this._shadowRoot = this.attachShadow({ 'mode': 'open' });
-        this._shadowRoot.appendChild(james_template.content.cloneNode(true));
+        this._shadowRoot.appendChild(interface_template.content.cloneNode(true));
         this.$content = this._shadowRoot.querySelector('#content');
       fetch("opleidingen.json")
         .then(response => response.json())
