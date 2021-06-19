@@ -11,7 +11,8 @@ james_template.innerHTML = /* html */ `
     body {margin:0};
     
 </style>
-<face-ʤ></face-ʤ>
+<fullscreen-ɮ></fullscreen-ɮ>
+<face-ʤ hidden></face-ʤ>
 <interface-ʤ hidden></interface-ʤ>
 `;
 //#endregion TEMPLATE
@@ -22,13 +23,22 @@ window.customElements.define('james-ʤ', class extends HTMLElement {
     super();
     this._shadowRoot = this.attachShadow({ 'mode': 'open' });
     this._shadowRoot.appendChild(james_template.content.cloneNode(true));
-    this.$content = this._shadowRoot.querySelector('#content');
+    this.$content = this._shadowRoot.querySelector('body');
     this.$face = this._shadowRoot.querySelector('face-ʤ');
     this.$interface = this._shadowRoot.querySelector('interface-ʤ');
+    this.$fullscreen = this._shadowRoot.querySelector('fullscreen-ɮ');
     this.socket = new WebSocket('ws://essadji.be:2105');
   }
 
   connectedCallback() {
+    this.addEventListener("fullscreen", (e) => {
+      let elem = document.documentElement;
+      if (elem.requestFullscreen)
+        elem.requestFullscreen().catch(err => {
+          alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+        });
+      if (this.$face.hidden) { this.$face.hidden = false; this.$interface.hidden = true; this.$fullscreen.hidden = true; }
+    });
     this.socket.addEventListener('open', (event) => {
       console.log("opening socket for master component...")
       this.socket.send('Hello server, I\'m a master component; At your service ...');
@@ -39,12 +49,12 @@ window.customElements.define('james-ʤ', class extends HTMLElement {
         case 'face':
           console.dir(this.$face);
           console.log(this.$face.hidden);
-          if (this.$face.hidden) { this.$face.hidden = false; this.$interface.hidden = true }
+          if (this.$face.hidden) { this.$face.hidden = false; this.$interface.hidden = true; this.$fullscreen.hidden = true; }
           break;
         case 'interface':
           console.dir(this.$interface);
           console.log(this.$interface.hidden);
-          if (this.$interface.hidden) { this.$interface.hidden = false; this.$face.hidden = true }
+          if (this.$interface.hidden) { this.$interface.hidden = false; this.$face.hidden = true; this.$fullscreen.hidden = true; }
           break;
         case 'interface':
           break;
