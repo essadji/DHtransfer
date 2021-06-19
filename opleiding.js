@@ -7,7 +7,7 @@ opleiding_template.innerHTML = /* html */ `
   <style>
     .slider-item {
       width: 630px;
-      padding: 20px 0 25px 30px;
+      padding: 20px 0 20px 30px;
       border-radius: 10px;
       background-color: #ffffff;
       display: flex;
@@ -23,9 +23,7 @@ opleiding_template.innerHTML = /* html */ `
     }
     .slider-item .animation-card_content .animation-card_content_title {
       color: var(--ucll-red);
-      font-size: 16px;
-      font-weight: 400;
-      letter-spacing: -0.18px;
+      font-size: 20pt;
       line-height: 24px;
       margin: 0;
     }
@@ -55,7 +53,6 @@ window.customElements.define('opleiding-ʤ', class extends HTMLElement {
     this._shadowRoot = this.attachShadow({ 'mode': 'open' });
     this._shadowRoot.appendChild(opleiding_template.content.cloneNode(true));
     this.$content = this._shadowRoot.querySelector('#content');
-    this.$comments = this._shadowRoot.querySelector('#comments');
   }
 
   static get observedAttributes() {
