@@ -24,15 +24,17 @@ modal_template.innerHTML = /* html */ `
 
         /* Modal Content */
         .modal-content {
-            position: relative;
+           height: 20%;
             background-color: #fefefe;
-            margin: auto;
+            opacity:1;
+           /* margin: auto;
             padding: 0;
             border: 1px solid #888;
-            width: 80%;
+            width: 80%; */
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
             animation-name: animatetop;
-            animation-duration: 0.4s
+            animation-duration: 0.4s;
+ 
         }
 
         /* Add Animation */
@@ -62,22 +64,12 @@ window.customElements.define('modal-ɮ', class extends HTMLElement {
         this._shadowRoot.appendChild(modal_template.content.cloneNode(true));
         this.$modal = this._shadowRoot.querySelector('#myModal');
         this.$span = this._shadowRoot.querySelector('.close');
-        this.$modal.style.display = "block";
+        //this.$modal.style.display = "block";
 
-        $span.onclick = function () {
-            this.$modal.style.display = "none";
-        }
+        // this.$span.addEventListener('click', ()=> {
+        //     this.$modal.style.display = "none";
+        // })
 
-        window.onclick = (event) => {
-            if (event.target == this.$modal) {
-                this.$modal.style.display = "none";
-            }
-        }
-
-    }
-
-    set content(x) {
-        this.$content.innerHTML = x;
     }
 
 });

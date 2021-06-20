@@ -1,5 +1,6 @@
 //#region IMPORTS
 import "./opleiding.js";
+import "./modalWIP.js";
 //#endregion IMPORTS
 
 //#region TEMPLATE
@@ -90,6 +91,20 @@ interface_template.innerHTML = /* html */ `
         font-size: larger;
         color: var(--ucll-red)
       }
+      modal-ɮ {
+        background-color: rgba(0, 0, 0, 0.7);
+        
+        position: fixed;
+        width: 100%;
+        
+        margin: 0;
+        padding: 40px;
+        height: 100%;
+                         grid-column-start: 1;
+  grid-column-end: 3;
+    grid-row-start: 1;
+  grid-row-end: 2;
+      }
 }
   </style>
 
@@ -136,6 +151,7 @@ window.customElements.define('interface-ʤ', class extends HTMLElement {
     this.$selection = this._shadowRoot.querySelector('#selection');
     this.$deselect = this._shadowRoot.querySelector("#deselect");
     this.$deselect.addEventListener("click", this.deselect.bind(this))
+    this.$grid = this._shadowRoot.querySelector('#content');
 
     fetch("../data/opleidingen.json")
       .then(response => response.json())
@@ -180,7 +196,9 @@ window.customElements.define('interface-ʤ', class extends HTMLElement {
                 console.log("Open Modal");
                 let m = document.createElement('modal-ɮ');
                 m.innerHTML = afstudeerrichting;
-                this.appendChild(m);
+                m.addEventListener('click', e => {m.style.display = 'none'})
+                // m.id = "myModal"
+                this.$grid.appendChild(m);
               });
               o.id = afstudeerrichting;
 
