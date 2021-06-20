@@ -10,7 +10,7 @@ J_con_template.innerHTML = /* html */ `
   <button id="btnTest">send id</button>
   <button id="btnClients">client request</button>
   <button id="btnInterface">show interface</button>
-  <button id="btnFace" hidden>show face</button>
+  <button id="btnFace">show face</button>
  <!--  </body> -->
 `;
 //#endregion TEMPLATE
