@@ -175,15 +175,22 @@ window.customElements.define('interface-ʤ', class extends HTMLElement {
 
               c.setAttribute("slot", "richting")
               c.innerHTML = afstudeerrichting;
+              //Open Modal
               o.append(c)
+              o.addEventListener('click', (x) => {
+                console.log("Open Modal");
+                let m = document.createElement('modal-ɮ');
+                m.innerHTML = afstudeerrichting;
+                this.appendChild(m);
+              });
               o.id = afstudeerrichting;
 
               let diplomas = this.opleidingen[opleiding].Afstudeerrichtingen[afstudeerrichting].Diploma;
               let ac = document.createElement('container')
               ac.setAttribute("slot", "afstudeerrichting")
               ac.innerHTML = diplomas.replace(" | ", "<br>");
-
               o.append(ac)
+
               this.$detailSlider.appendChild(o);
             }));
             this.$detailGrid.style.display = "grid";
