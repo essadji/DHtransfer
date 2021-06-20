@@ -1,7 +1,7 @@
 # TODO
 - blinking eyes
-- clickthrough opleidingen
-- richtingen dynamisch laden
+- clickthrough opleidingen [Done]
+- richtingen dynamisch laden [Done]
 - robot interface hosting
 - control interface hosting
 ---
@@ -18,7 +18,7 @@
 - page switch [Done]
 ## Face page
 ## Navigation page
-- navigation clickthrough
+- navigation clickthrough [Done]
 ## Login page?
 - show name & programme
 ---

@@ -142,38 +142,49 @@ window.customElements.define('interface-ʤ', class extends HTMLElement {
       .then(response => response.json())
       .then(json => {
         this.opleidingen = json;
-        console.dir(this.opleidingen);
         Object.keys(this.opleidingen).map((opleiding => {
-          let o = document.createElement('opleiding-ʤ');
           let c = document.createElement('container')
+          let o = document.createElement('opleiding-ʤ');
+
           c.setAttribute("slot", "richting")
           c.innerHTML = opleiding;
           o.append(c)
           o.id = opleiding;
+
           let richtingen = this.opleidingen[opleiding].Afstudeerrichtingen;
-          console.dir(richtingen)
           let stringbuilder = '';
           let ac = document.createElement('container')
           ac.setAttribute("slot", "afstudeerrichting")
+
           Object.keys(richtingen).map(k => {
-            console.log(`PRE: ${stringbuilder}`)
             stringbuilder += k + ("<span class='divider'> | </span>")
-            console.log(`POST: ${stringbuilder}`)
           })
+
           ac.innerHTML = stringbuilder.substring(0, stringbuilder.length - 32);
           o.append(ac)
 
           o.addEventListener('click', (x) => {
             this.$deselect.hidden = false;
-            this.$selection.innerHTML = x.target.innerHTML.toUpperCase();
+            this.$selection.innerHTML = opleiding;
             this.$detailSlider.innerHTML = '';
-            console.dir(this.opleidingen.Afstudeerrichtingen);
             this.$coursesGrid.style.display = "none";
-            Object.keys(this.opleidingen).map((afstudeerrichting => {
-              let d = document.createElement('opleiding-ʤ');
-              d.innerHTML = afstudeerrichting;
-              d.id = afstudeerrichting;
-              this.$detailSlider.appendChild(d);
+
+            Object.keys(this.opleidingen[opleiding].Afstudeerrichtingen).map((afstudeerrichting => {
+              let c = document.createElement('container')
+              let o = document.createElement('opleiding-ʤ');
+
+              c.setAttribute("slot", "richting")
+              c.innerHTML = afstudeerrichting;
+              o.append(c)
+              o.id = afstudeerrichting;
+
+              let diplomas = this.opleidingen[opleiding].Afstudeerrichtingen[afstudeerrichting].Diploma;
+              let ac = document.createElement('container')
+              ac.setAttribute("slot", "afstudeerrichting")
+              ac.innerHTML = diplomas.replace(" | ", "<br>");
+
+              o.append(ac)
+              this.$detailSlider.appendChild(o);
             }));
             this.$detailGrid.style.display = "grid";
           })
