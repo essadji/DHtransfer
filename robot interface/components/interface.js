@@ -194,7 +194,9 @@ window.customElements.define('interface-ʤ', class extends HTMLElement {
   }
 
   deselect() {
-
+    this.$coursesGrid.style.display = "grid";
+    this.$detailGrid.style.display = "none";
+    this.$deselect.hidden = true;
   }
 
   static get observedAttributes() {
