@@ -132,6 +132,7 @@ window.customElements.define('interface-ʤ', class extends HTMLElement {
     this.$coursesSlider = this._shadowRoot.querySelector('#courses-slider');
     this.$detailSlider = this._shadowRoot.querySelector('#detail-slider');
     this.$campusGrid = this._shadowRoot.querySelector('#campus-grid');
+    this.$coursesGrid = this._shadowRoot.querySelector('#courses-grid');
     this.$detailGrid = this._shadowRoot.querySelector('#details-grid');
     this.$selection = this._shadowRoot.querySelector('#selection');
     this.$deselect = this._shadowRoot.querySelector("#deselect");
@@ -166,9 +167,8 @@ window.customElements.define('interface-ʤ', class extends HTMLElement {
             this.$deselect.hidden = false;
             this.$selection.innerHTML = x.target.innerHTML.toUpperCase();
             this.$detailSlider.innerHTML = '';
-            this.$campusGrid.style.display = "none";
             console.dir(this.opleidingen.Afstudeerrichtingen);
-
+            this.$coursesGrid.style.display = "none";
             Object.keys(this.opleidingen).map((afstudeerrichting => {
               let d = document.createElement('opleiding-ʤ');
               d.innerHTML = afstudeerrichting;
