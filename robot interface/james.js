@@ -37,14 +37,6 @@ window.customElements.define('james-ʤ', class extends HTMLElement {
         });
       if (this.$face.hidden) { this.$face.hidden = false; this.$interface.hidden = true; this.$fullscreen.hidden = true; }
     });
-    // let elem = document.documentElement;
-    // this.addEventListener("fullscreen", (e) => {
-    //   if (elem.requestFullscreen)
-    //     elem.requestFullscreen().catch(err => {
-    //       alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-    //     });
-    //   if (this.$face.hidden) { this.$face.hidden = false; this.$interface.hidden = true; this.$fullscreen.hidden = true; }
-    // });
     this.socket.addEventListener('open', (event) => {
       console.log("opening socket for master component...")
       this.socket.send('Hello server, I\'m a master component; At your service ...');
@@ -53,13 +45,9 @@ window.customElements.define('james-ʤ', class extends HTMLElement {
       console.log('Message from server ', event.data);
       switch (event.data) {
         case 'face':
-          console.dir(this.$face);
-          console.log(this.$face.hidden);
           if (this.$face.hidden) { this.$face.hidden = false; this.$interface.hidden = true; this.$fullscreen.hidden = true; }
           break;
         case 'interface':
-          console.dir(this.$interface);
-          console.log(this.$interface.hidden);
           if (this.$interface.hidden) { this.$interface.hidden = false; this.$face.hidden = true; this.$fullscreen.hidden = true; }
           break;
         case 'interface':

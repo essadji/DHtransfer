@@ -69,15 +69,22 @@ interface_template.innerHTML = /* html */ `
 
   <!-- <body> -->
     <div id="content" class="grid">
-      <div class="grid-item">
-        <div id="campus" class="title-text">
+      <div id="campus-grid" class="grid-item" >
+        <div id="campus" class="title-text"  >
           <h1>CAMPUS DIEPENBEEK</h1>
           <h4>technologie</h4>
         </div>
       </div>
-      <div class="grid-item">
-       <div class="slider-wrap">
+      <div id="courses-grid" class="grid-item">
+        <div class="slider-wrap">
           <div id="courses-slider" class="slider">
+            <!--Component insertion here-->
+          </div>
+        </div>
+      </div>
+      <div id="details-grid" class="grid-item" style="display:none">
+        <div class="slider-wrap">
+          <div id="detail-slider" class="slider">
             <!--Component insertion here-->
           </div>
         </div>
@@ -94,24 +101,38 @@ window.customElements.define('interface-ʤ', class extends HTMLElement {
     this._shadowRoot = this.attachShadow({ 'mode': 'open' });
     this._shadowRoot.appendChild(interface_template.content.cloneNode(true));
     this.$content = this._shadowRoot.querySelector('#content');
+    this.$coursesSlider = this._shadowRoot.querySelector('#courses-slider');
+    this.$detailSlider = this._shadowRoot.querySelector('#detail-slider');
+    this.$campusGrid = this._shadowRoot.querySelector('#campus-grid');
+    this.$detailGrid = this._shadowRoot.querySelector('#details-grid');
+
     fetch("opleidingen.json")
       .then(response => response.json())
       .then(json => {
-        this.opleidingen = json; Object.keys(json).map((opleiding => {
-          // console.log(opleiding)
-
+        this.opleidingen = json;
+        console.dir(this.opleidingen);
+        Object.keys(this.opleidingen).map((opleiding => {
           let o = document.createElement('opleiding-ʤ');
           o.innerHTML = opleiding;
           o.id = opleiding;
 
           o.addEventListener('click', (x) => {
-            // c[i].setAttribute('active','');
-            console.log("click!")
+            this.$detailSlider.innerHTML = '';
+            this.$campusGrid.style.display = "none";
+            console.dir(this.opleidingen.Afstudeerrichtingen);
+
+            Object.keys(this.opleidingen).map((afstudeerrichting => {
+              let d = document.createElement('opleiding-ʤ');
+              d.innerHTML = afstudeerrichting;
+              d.id = afstudeerrichting;
+              this.$detailSlider.appendChild(d);
+            }));
+
+            this.$detailGrid.style.display = "grid";
           })
-          this.shadowRoot.querySelector('#courses-slider').appendChild(o)
+          this.$coursesSlider.appendChild(o);
         }))
       });
-
   }
 
   static get observedAttributes() {
