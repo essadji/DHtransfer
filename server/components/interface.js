@@ -26,7 +26,7 @@ interface_template.innerHTML = /* html */ `
       margin:10px 10px 0 10px;
     }
     #content {
-      background: url('images/diepenbeek2020_header_0.png') no-repeat center center
+      background: url('../images/diepenbeek2020_header_0.png') no-repeat center center
         fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
@@ -137,11 +137,11 @@ window.customElements.define('interface-ʤ', class extends HTMLElement {
     this.$deselect = this._shadowRoot.querySelector("#deselect");
     this.$deselect.addEventListener("click", this.deselect.bind(this))
 
-    fetch("opleidingen.json")
+    fetch("../data/opleidingen.json")
       .then(response => response.json())
       .then(json => {
         this.opleidingen = json;
-        console.dir(this.opleidingen);
+        // console.dir(this.opleidingen);
         Object.keys(this.opleidingen).map((opleiding => {
           let o = document.createElement('opleiding-ʤ');
           let c = document.createElement('container')
@@ -150,14 +150,12 @@ window.customElements.define('interface-ʤ', class extends HTMLElement {
           o.append(c)
           o.id = opleiding;
           let richtingen = this.opleidingen[opleiding].Afstudeerrichtingen;
-          console.dir(richtingen)
+          // console.dir(richtingen)
           let stringbuilder = '';
           let ac = document.createElement('container')
           ac.setAttribute("slot", "afstudeerrichting")
           Object.keys(richtingen).map(k => {
-            console.log(`PRE: ${stringbuilder}`)
             stringbuilder += k + ("<span class='divider'> | </span>")
-            console.log(`POST: ${stringbuilder}`)
           })
           ac.innerHTML = stringbuilder.substring(0, stringbuilder.length - 32);
           o.append(ac)

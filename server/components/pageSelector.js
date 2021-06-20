@@ -27,13 +27,15 @@ emotion_control_template.innerHTML = /* html */ `
 
 <div>
     <h2>Select page to display:</h2>
-    <!--<button id="btn">random message</button>
+    <!--
+    <button id="btn">random message</button>
     <button id="btnTest">send id</button>
-    <button id="btnClients">client request</button>
     -->
-    <button id="btnInterface">show interface</button>
-    <button id="btnFace">show face</button>
-    <button id="btnLogin">show login</button>
+    <button id="btnClients">ENUMERATE CLIENTS</button>
+    <button id="btnInterface">SHOW INTERFACE</button>
+    <button id="btnFace">SHOW JAMES</button>
+    <button id="btnLogin">SHOW LOGIN</button>
+    <button id="btnNodal">CLOSE MODALS</button>
 </div>
 <hr/>
 <!--  </body> -->

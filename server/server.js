@@ -1,7 +1,5 @@
 'use strict';
 
-// const WebSocket = require('ws');
-// const wss = new WebSocket.Server({ port: 2105 });
 const WSS = require('ws').Server;  // WSSserver
 const HTTP = require('http').createServer(); // server
 const APP = require('./app');
@@ -36,7 +34,7 @@ wss.on('connection', function connection(ws) {
                 wss.clients.forEach(c => c.send("login"))
                 break;
             default:
-                ws.send(JSON.stringify({              
+                ws.send(JSON.stringify({
                     answer: 42
                 }));
         }
@@ -44,5 +42,5 @@ wss.on('connection', function connection(ws) {
 });
 
 HTTP.listen(PORT, () => {
-    console.log(`http/ws server listening on ${PORT||process.env.PORT}`);
+    console.log(`http/ws server listening on ${PORT || process.env.PORT}`);
 });
