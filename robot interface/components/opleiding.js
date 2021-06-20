@@ -39,8 +39,8 @@ opleiding_template.innerHTML = /* html */ `
 
   <div id="Elektromechanica" class="slider-item">
     <div class="animation-card_content">
-      <h4 class="animation-card_content_title title-2"><slot id="richting"></slot></h4>
-        <p class="animation-card_content_description p-2"><slot id="afstudeerrichtingen"></p>
+      <h4 class="animation-card_content_title title-2"><slot name="richting"></slot></h4>
+        <p class="animation-card_content_description p-2"><slot name="afstudeerrichting"></slot></p>
     </div>
   </div>
 `;
@@ -52,6 +52,8 @@ window.customElements.define('opleiding-ʤ', class extends HTMLElement {
     super();
     this._shadowRoot = this.attachShadow({ 'mode': 'open' });
     this._shadowRoot.appendChild(opleiding_template.content.cloneNode(true));
+    this.$richting = this._shadowRoot.querySelector("container[slot=richting]")
+    this.$afstudeerrichting = this._shadowRoot.querySelector("container[slot=afstudeerrichting]")
   }
 
   static get observedAttributes() {

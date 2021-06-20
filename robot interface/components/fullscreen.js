@@ -4,7 +4,7 @@
 //#region TEMPLATE
 const fullscreen_template = document.createElement('template');
 fullscreen_template.innerHTML = /* html */ `
-  <!-- <body> -->
+  
     <style>
         button {
             background-color: #ddd;
@@ -17,10 +17,10 @@ fullscreen_template.innerHTML = /* html */ `
             margin: 4px 4px;
             cursor: pointer;
             border-radius: 16px;
-    }
+        }
     </style>
+
     <button type="button" id="btnFullscreen">Fullscreen</button>
- <!--  </body> -->
 `;
 //#endregion TEMPLATE
 
@@ -31,8 +31,6 @@ window.customElements.define('fullscreen-ɮ', class extends HTMLElement {
         this._shadowRoot = this.attachShadow({ 'mode': 'open' });
         this._shadowRoot.appendChild(fullscreen_template.content.cloneNode(true));
         this.$fullscreen = this._shadowRoot.querySelector('#btnFullscreen');
-
-
     }
 
     static get observedAttributes() {
@@ -46,10 +44,10 @@ window.customElements.define('fullscreen-ɮ', class extends HTMLElement {
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
             case 'kenny':
-
                 break;
         }
     }
+
     connectedCallback() {
         this.$fullscreen.addEventListener('click', this.handler.bind(this));
     }
@@ -63,4 +61,4 @@ window.customElements.define('fullscreen-ɮ', class extends HTMLElement {
         }));
     }
 });
-  //#endregion CLASS
+//#endregion CLASS
