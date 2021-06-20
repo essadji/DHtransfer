@@ -89,26 +89,11 @@ window.customElements.define('j_con-ɮ', class extends HTMLElement {
     }
 
     handler(e) {
-        // console.dir(e.target.id)
-        // console.dir(this)
         this.socket.send(e.target.id)
-
-    }
-
-    static get observedAttributes() {
-
     }
 
     set content(x) {
         this.$content.innerHTML = x;
-    }
-
-    attributeChangedCallback(name, oldValue, newValue) {
-        switch (name) {
-            case 'kenny':
-
-                break;
-        }
     }
 
 });

@@ -71,56 +71,41 @@ window.customElements.define('emotion-control-ɮ', class extends HTMLElement {
     }
 
     handler(e) {
-        // console.dir(e.target.id)
-        // console.dir(this)
         this.socket.send(e.target.id)
-
-    }
-
-    static get observedAttributes() {
-
     }
 
     set content(x) {
         this.$content.innerHTML = x;
     }
 
-    attributeChangedCallback(name, oldValue, newValue) {
-        switch (name) {
-            case 'kenny':
-
-                break;
-        }
-    }
-    
     beginDrag(e) {
         e.stopPropagation();
         let target = e.target;
-    
+
         if (target.classList.contains('draggable')) {
             this.selected = target;
         } else {
             this.selected = this._shadowRoot.querySelector('.main-container');
         }
-    
+
         this.selected.dataset.startMouseX = e.clientX;
         this.selected.dataset.startMouseY = e.clientY;
     }
-    
+
     drag(e) {
         let scale = 1;
         if (!this.selected) return;
         e.stopPropagation();
-    
+
         let startX = parseFloat(this.selected.dataset.startMouseX),
             startY = parseFloat(this.selected.dataset.startMouseY),
             dx = (e.clientX - startX),
             dy = (e.clientY - startY);
-    
+
         if (this.selected.classList.contains('draggable')) {
             let selectedBox = this.selected.getBoundingClientRect(),
                 boundaryBox = this.selected.parentElement.getBoundingClientRect();
-    
+
             // if (selectedBox.right + dx > boundaryBox.right) {
             //     dx = (boundaryBox.right - selectedBox.right);
             // } else if (selectedBox.left + dx < boundaryBox.left) { dx = (boundaryBox.left - selectedBox.left); } if
@@ -134,7 +119,7 @@ window.customElements.define('emotion-control-ɮ', class extends HTMLElement {
         this.selected.transform.baseVal.initialize(transform); this.selected.dataset.startMouseX = dx + startX;
         this.selected.dataset.startMouseY = dy + startY;
     }
-    
+
     endDrag(e) {
         e.stopPropagation(); if (this.selected) {
             this.selected = undefined;

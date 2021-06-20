@@ -30,7 +30,6 @@ camera_template.innerHTML = /* html */ `
     </div>
 </div>
 <hr/>
-<!--  </body> -->
 `;
 //#endregion TEMPLATE
 
@@ -64,20 +63,8 @@ window.customElements.define('camera-ɮ', class extends HTMLElement {
 
     }
 
-    static get observedAttributes() {
-
-    }
-
     set content(x) {
         this.$content.innerHTML = x;
-    }
-
-    attributeChangedCallback(name, oldValue, newValue) {
-        switch (name) {
-            case 'kenny':
-
-                break;
-        }
     }
 
 });

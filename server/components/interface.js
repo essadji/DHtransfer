@@ -183,20 +183,8 @@ window.customElements.define('interface-ʤ', class extends HTMLElement {
 
   }
 
-  static get observedAttributes() {
-    return ['kenny'];
-  }
-
   set content(x) {
     this.$content.innerHTML = x;
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-    switch (name) {
-      case 'kenny':
-
-        break;
-    }
   }
 
 });
