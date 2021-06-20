@@ -26,7 +26,7 @@ window.customElements.define('j_con-ɮ', class extends HTMLElement {
     }
 
     connectedCallback() {
-        this.$test.forEach(x=>{x.addEventListener('click', this.handler.bind(this))});
+        this.$test.forEach(x => { x.addEventListener('click', this.handler.bind(this)) });
         this.socket.addEventListener('open', (event) => {
             console.log("opening socket...")
             this.socket.send('Hello server, I will be your controller today.');
@@ -45,7 +45,7 @@ window.customElements.define('j_con-ɮ', class extends HTMLElement {
     }
 
     static get observedAttributes() {
-        
+
     }
 
     set content(x) {
