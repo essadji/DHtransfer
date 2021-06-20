@@ -1,0 +1,21 @@
+body {
+  margin: 0px;
+  background-color: var(--base);
+}
+
+/* PSEUDO-selector for fullscreen background definition
+*::backdrop{ 
+  background:white;
+}
+*/
+
+:root {
+  --essadji: hotpink;
+  --base: #262626;
+  --button-host: #303030;
+  --text: #666666;
+  --dark: #1a1a1a;
+  --ucll-red: #e00049;
+  --ucll-blue: #002757;
+  --ucll-sky: #9fdaf9;
+}

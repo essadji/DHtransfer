@@ -5,7 +5,21 @@
 const fullscreen_template = document.createElement('template');
 fullscreen_template.innerHTML = /* html */ `
   <!-- <body> -->
-     <button type="button" id="btnFullscreen">Fullscreen</button>
+    <style>
+        button {
+            background-color: #ddd;
+            border: none;
+            color: black;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px 4px;
+            cursor: pointer;
+            border-radius: 16px;
+    }
+    </style>
+    <button type="button" id="btnFullscreen">Fullscreen</button>
  <!--  </body> -->
 `;
 //#endregion TEMPLATE
