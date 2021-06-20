@@ -93,32 +93,31 @@ interface_template.innerHTML = /* html */ `
 }
   </style>
 
-  <!-- <body> -->
-    <div id="content" class="grid">
-      <div id="campus-grid" >
-        <div id="campus" class="title-text"  >
-          <h1>CAMPUS DIEPENBEEK</h1>
-          <h4>technologie</h4>
-        </div>
-        <div class="selected-item-card" id="deselect" hidden>
-          <h1 id="selection"></h1>
-        </div>
+  <div id="content" class="grid">
+    <div id="campus-grid" >
+      <div id="campus" class="title-text"  >
+        <h1>CAMPUS DIEPENBEEK</h1>
+        <h4>technologie</h4>
       </div>
-      <div id="courses-grid" class="grid-item">
-        <div class="slider-wrap">
-          <div id="courses-slider" class="slider">
-            <!--Component insertion here-->
-          </div>
-        </div>
+      <div class="selected-item-card" id="deselect" hidden>
+        <h1 id="selection"></h1>
       </div>
-      <div id="details-grid" class="grid-item" style="display:none">
-        <div class="slider-wrap">
-          <div id="detail-slider" class="slider">
-            <!--Component insertion here-->
-          </div>
+    </div>
+    <div id="courses-grid" class="grid-item">
+      <div class="slider-wrap">
+        <div id="courses-slider" class="slider">
+          <!--Component insertion here-->
         </div>
       </div>
     </div>
+    <div id="details-grid" class="grid-item" style="display:none">
+      <div class="slider-wrap">
+        <div id="detail-slider" class="slider">
+          <!--Component insertion here-->
+        </div>
+      </div>
+    </div>
+  </div>
 `;
 //#endregion TEMPLATE
 

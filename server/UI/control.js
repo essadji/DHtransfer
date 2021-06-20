@@ -1,6 +1,7 @@
 //#region IMPORTS
 import "./components/pageSelector.js";
 import "./components/camera.js";
+import "../JAMES/james.js";
 import "./components/emotionControl.js";
 //#endregion IMPORTS
 
@@ -12,6 +13,7 @@ pageSelector_template.innerHTML = /* html */ `
 <page-selector-ɮ></page-selector-ɮ>
 <camera-ɮ></camera-ɮ>
 <emotion-control-ɮ></emotion-control-ɮ>
+<james-ʤ></james-ʤ>
  <!--  </body> -->
 `;
 //#endregion TEMPLATE
