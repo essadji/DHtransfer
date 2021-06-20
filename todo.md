@@ -2,6 +2,7 @@
 - blinking eyes
 - clickthrough opleidingen
 - richtingen dynamisch laden
+- animating cards
 - robot interface hosting
 - control interface hosting
 ---
