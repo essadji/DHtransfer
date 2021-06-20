@@ -165,7 +165,7 @@ window.customElements.define('interface-ʤ', class extends HTMLElement {
 
           o.addEventListener('click', (x) => {
             this.$deselect.hidden = false;
-            this.$selection.innerHTML = opleiding;
+            this.$selection.innerHTML = opleiding.toUpperCase();
             this.$detailSlider.innerHTML = '';
             this.$coursesGrid.style.display = "none";
 
