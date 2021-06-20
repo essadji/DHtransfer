@@ -2,7 +2,6 @@
 - blinking eyes
 - clickthrough opleidingen
 - richtingen dynamisch laden
-- animating cards
 - robot interface hosting
 - control interface hosting
 ---
@@ -12,13 +11,11 @@
 # MAYBE
 - Playstation eye control
 - login (Kenny+?)
-- camera
 ---
 # FEATURES
 ## Control Page
 - eye control
 - page switch [Done]
-- camera feed
 ## Face page
 ## Navigation page
 - navigation clickthrough

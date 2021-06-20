@@ -11,6 +11,7 @@ interface_template.innerHTML = /* html */ `
     @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
     * {
       box-sizing: border-box;
+      font-family: 'Open Sans', sans-serif;
     }
     h4{
       font-family: 'Kaushan Script', cursive;
@@ -31,11 +32,16 @@ interface_template.innerHTML = /* html */ `
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover;
-      font-family: 'Open Sans', sans-serif;
       font-weight: bold;
       margin: 0;
     }
 
+    #campus-grid{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding-left: 50px;
+    }
     .grid {
       height: 100vh;
       width: 100vw;
@@ -58,6 +64,20 @@ interface_template.innerHTML = /* html */ `
       width: 90%;
       border-radius: 25px;
     }
+
+    .selected-item-card{
+      text-align: center;
+      width: 90%;
+      border-radius: 25px;
+      background: var(--ucll-red);
+      padding: 5px 10px 10px 10px;
+      margin-top: 10px;
+    }
+    .selected-item-card h1{
+      color: white;
+      font-size: 20pt;
+    }
+
     .slider-wrap {
       height: auto;
     }
@@ -75,12 +95,12 @@ interface_template.innerHTML = /* html */ `
 
   <!-- <body> -->
     <div id="content" class="grid">
-      <div id="campus-grid" class="grid-item" >
+      <div id="campus-grid" >
         <div id="campus" class="title-text"  >
           <h1>CAMPUS DIEPENBEEK</h1>
           <h4>technologie</h4>
         </div>
-        <div class="title-text" id="deselect" hidden>
+        <div class="selected-item-card" id="deselect" hidden>
           <h1 id="selection"></h1>
         </div>
       </div>
@@ -99,7 +119,6 @@ interface_template.innerHTML = /* html */ `
         </div>
       </div>
     </div>
- <!--  </body> -->
 `;
 //#endregion TEMPLATE
 
@@ -147,7 +166,7 @@ window.customElements.define('interface-ʤ', class extends HTMLElement {
             this.$deselect.hidden = false;
             this.$selection.innerHTML = x.target.innerHTML.toUpperCase();
             this.$detailSlider.innerHTML = '';
-            //this.$campusGrid.style.display = "none";
+            this.$campusGrid.style.display = "none";
             console.dir(this.opleidingen.Afstudeerrichtingen);
 
             Object.keys(this.opleidingen).map((afstudeerrichting => {
@@ -156,7 +175,6 @@ window.customElements.define('interface-ʤ', class extends HTMLElement {
               d.id = afstudeerrichting;
               this.$detailSlider.appendChild(d);
             }));
-
             this.$detailGrid.style.display = "grid";
           })
           this.$coursesSlider.appendChild(o);
