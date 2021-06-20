@@ -10,7 +10,7 @@ james_template.innerHTML = /* html */ `
 <style>
   :host {background: white;}
 </style>
-<fullscreen-ɮ></fullscreen-ɮ>
+<!-- <fullscreen-ɮ></fullscreen-ɮ> -->
 <face-ʤ hidden></face-ʤ>
 <interface-ʤ hidden></interface-ʤ>
 `;
@@ -58,7 +58,7 @@ window.customElements.define('james-ʤ', class extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return [];
+    return ["fullscreen"];
   }
 
   set content(x) {
@@ -67,8 +67,8 @@ window.customElements.define('james-ʤ', class extends HTMLElement {
 
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
-      case 'kenny':
-
+      case 'fullscreen':
+console.log("fullscreen changed")
         break;
     }
   }
