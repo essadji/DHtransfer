@@ -1,7 +1,7 @@
 //#region IMPORTS
-import "./components/fullscreen.js";
-import "./components/face.js";
-import "./components/interface.js";
+import "./fullscreen.js";
+import "./face.js";
+import "./interface.js";
 //#endregion IMPORTS
 
 //#region TEMPLATE
@@ -10,8 +10,8 @@ james_template.innerHTML = /* html */ `
 <style>
   :host {background: white;}
 </style>
-<!-- <fullscreen-ɮ></fullscreen-ɮ> -->
-<face-ʤ hidden></face-ʤ>
+<fullscreen-ɮ hidden></fullscreen-ɮ>
+<face-ʤ></face-ʤ>
 <interface-ʤ hidden></interface-ʤ>
 `;
 //#endregion TEMPLATE
@@ -50,8 +50,6 @@ window.customElements.define('james-ʤ', class extends HTMLElement {
         case 'interface':
           if (this.$interface.hidden) { this.$interface.hidden = false; this.$face.hidden = true; this.$fullscreen.hidden = true; }
           break;
-        case 'interface':
-          break;
       }
     });
 
@@ -68,7 +66,8 @@ window.customElements.define('james-ʤ', class extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
       case 'fullscreen':
-console.log("fullscreen changed")
+this.$face.hidden = true;
+this.$fullscreen.hidden = false;
         break;
     }
   }

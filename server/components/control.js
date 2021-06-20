@@ -1,8 +1,8 @@
 //#region IMPORTS
-import "./components/pageSelector.js";
-import "./components/camera.js";
-import "../JAMES/james.js";
-import "./components/emotionControl.js";
+import "./pageSelector.js";
+import "./camera.js";
+import "./james.js";
+import "./emotionControl.js";
 //#endregion IMPORTS
 
 //#region TEMPLATE
@@ -11,6 +11,9 @@ const pageSelector_template = document.createElement('template');
 pageSelector_template.innerHTML = /* html */ `
 
 <style>
+    :host {
+        background-color: var(--base);
+    }
 .grid-container {
     display:grid;
 }
