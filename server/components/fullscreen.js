@@ -33,19 +33,8 @@ window.customElements.define('fullscreen-ɮ', class extends HTMLElement {
         this.$fullscreen = this._shadowRoot.querySelector('#btnFullscreen');
     }
 
-    static get observedAttributes() {
-        return ['kenny'];
-    }
-
     set content(x) {
         this.$content.innerHTML = x;
-    }
-
-    attributeChangedCallback(name, oldValue, newValue) {
-        switch (name) {
-            case 'kenny':
-                break;
-        }
     }
 
     connectedCallback() {

@@ -1,24 +1,21 @@
 # TODO
-- blinking eyes
-- clickthrough opleidingen
-- richtingen dynamisch laden
-- robot interface hosting
-- control interface hosting
----
-# META
-- host proposal
+- [ ] blinking eyes
+- [X] clickthrough opleidingen
+- [X] richtingen dynamisch laden
+- [X] robot interface hosting
+- [X] control interface hosting
 ---
 # MAYBE
-- Playstation eye control
-- login (Kenny+?)
+- [ ] login (Kenny+?)
 ---
 # FEATURES
 ## Control Page
-- eye control
-- page switch [Done]
+- [ ] eye control
+- [ ] 2D controller
+- [X] page switch
 ## Face page
 ## Navigation page
-- navigation clickthrough
+- [X] navigation clickthrough
 ## Login page?
-- show name & programme
+- [ ] show name & programme
 ---

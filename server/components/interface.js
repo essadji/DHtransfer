@@ -93,31 +93,31 @@ interface_template.innerHTML = /* html */ `
 }
   </style>
 
-  <div id="content" class="grid">
-    <div id="campus-grid" >
-      <div id="campus" class="title-text"  >
-        <h1>CAMPUS DIEPENBEEK</h1>
-        <h4>technologie</h4>
+    <div id="content" class="grid">
+      <div id="campus-grid" >
+        <div id="campus" class="title-text"  >
+          <h1>CAMPUS DIEPENBEEK</h1>
+          <h4>technologie</h4>
+        </div>
+        <div class="selected-item-card" id="deselect" hidden>
+          <h1 id="selection"></h1>
+        </div>
       </div>
-      <div class="selected-item-card" id="deselect" hidden>
-        <h1 id="selection"></h1>
+      <div id="courses-grid" class="grid-item">
+        <div class="slider-wrap">
+          <div id="courses-slider" class="slider">
+            <!--Component insertion here-->
+          </div>
+        </div>
       </div>
-    </div>
-    <div id="courses-grid" class="grid-item">
-      <div class="slider-wrap">
-        <div id="courses-slider" class="slider">
-          <!--Component insertion here-->
+      <div id="details-grid" class="grid-item" style="display:none">
+        <div class="slider-wrap">
+          <div id="detail-slider" class="slider">
+            <!--Component insertion here-->
+          </div>
         </div>
       </div>
     </div>
-    <div id="details-grid" class="grid-item" style="display:none">
-      <div class="slider-wrap">
-        <div id="detail-slider" class="slider">
-          <!--Component insertion here-->
-        </div>
-      </div>
-    </div>
-  </div>
 `;
 //#endregion TEMPLATE
 
@@ -141,36 +141,56 @@ window.customElements.define('interface-ʤ', class extends HTMLElement {
       .then(response => response.json())
       .then(json => {
         this.opleidingen = json;
-        // console.dir(this.opleidingen);
         Object.keys(this.opleidingen).map((opleiding => {
-          let o = document.createElement('opleiding-ʤ');
           let c = document.createElement('container')
+          let o = document.createElement('opleiding-ʤ');
+
           c.setAttribute("slot", "richting")
           c.innerHTML = opleiding;
           o.append(c)
           o.id = opleiding;
+
           let richtingen = this.opleidingen[opleiding].Afstudeerrichtingen;
-          // console.dir(richtingen)
           let stringbuilder = '';
           let ac = document.createElement('container')
           ac.setAttribute("slot", "afstudeerrichting")
+
           Object.keys(richtingen).map(k => {
             stringbuilder += k + ("<span class='divider'> | </span>")
           })
+
           ac.innerHTML = stringbuilder.substring(0, stringbuilder.length - 32);
           o.append(ac)
 
           o.addEventListener('click', (x) => {
             this.$deselect.hidden = false;
-            this.$selection.innerHTML = x.target.innerHTML.toUpperCase();
+            this.$selection.innerHTML = opleiding.toUpperCase();
             this.$detailSlider.innerHTML = '';
-            console.dir(this.opleidingen.Afstudeerrichtingen);
             this.$coursesGrid.style.display = "none";
-            Object.keys(this.opleidingen).map((afstudeerrichting => {
-              let d = document.createElement('opleiding-ʤ');
-              d.innerHTML = afstudeerrichting;
-              d.id = afstudeerrichting;
-              this.$detailSlider.appendChild(d);
+
+            Object.keys(this.opleidingen[opleiding].Afstudeerrichtingen).map((afstudeerrichting => {
+              let c = document.createElement('container')
+              let o = document.createElement('opleiding-ʤ');
+
+              c.setAttribute("slot", "richting")
+              c.innerHTML = afstudeerrichting;
+              //Open Modal
+              o.append(c)
+              o.addEventListener('click', (x) => {
+                console.log("Open Modal");
+                let m = document.createElement('modal-ɮ');
+                m.innerHTML = afstudeerrichting;
+                this.appendChild(m);
+              });
+              o.id = afstudeerrichting;
+
+              let diplomas = this.opleidingen[opleiding].Afstudeerrichtingen[afstudeerrichting].Diploma;
+              let ac = document.createElement('container')
+              ac.setAttribute("slot", "afstudeerrichting")
+              ac.innerHTML = diplomas.replace(" | ", "<br>");
+              o.append(ac)
+
+              this.$detailSlider.appendChild(o);
             }));
             this.$detailGrid.style.display = "grid";
           })
@@ -180,23 +200,13 @@ window.customElements.define('interface-ʤ', class extends HTMLElement {
   }
 
   deselect() {
-
-  }
-
-  static get observedAttributes() {
-    return ['kenny'];
+    this.$coursesGrid.style.display = "grid";
+    this.$detailGrid.style.display = "none";
+    this.$deselect.hidden = true;
   }
 
   set content(x) {
     this.$content.innerHTML = x;
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-    switch (name) {
-      case 'kenny':
-
-        break;
-    }
   }
 
 });
