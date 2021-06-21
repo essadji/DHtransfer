@@ -8,7 +8,9 @@ import "./interface.js";
 const james_template = document.createElement('template');
 james_template.innerHTML = /* html */ `
 <style>
-  :host {background: white;}
+  :host {
+    background: white;
+  }
 </style>
 <fullscreen-ɮ hidden></fullscreen-ɮ>
 <face-ʤ></face-ʤ>
@@ -66,8 +68,8 @@ window.customElements.define('james-ʤ', class extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
       case 'fullscreen':
-this.$face.hidden = true;
-this.$fullscreen.hidden = false;
+        this.$face.hidden = true;
+        this.$fullscreen.hidden = false;
         break;
     }
   }

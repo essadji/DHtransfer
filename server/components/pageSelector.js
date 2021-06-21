@@ -27,10 +27,6 @@ emotion_control_template.innerHTML = /* html */ `
 
 <div>
     <h2>Select page to display:</h2>
-    <!--
-    <button id="btn">random message</button>
-    <button id="btnTest">send id</button>
-    -->
     <button id="btnClients">ENUMERATE CLIENTS</button>
     <button id="btnInterface">SHOW INTERFACE</button>
     <button id="btnFace">SHOW JAMES</button>
@@ -64,15 +60,11 @@ window.customElements.define('page-selector-ɮ', class extends HTMLElement {
     }
 
     handler(e) {
-        // console.dir(e.target.id)
-        // console.dir(this)
         this.socket.send(e.target.id)
-
     }
 
     set content(x) {
         this.$content.innerHTML = x;
     }
-
 });
   //#endregion CLASS

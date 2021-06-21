@@ -4,45 +4,45 @@
 //#region TEMPLATE
 const opleiding_template = document.createElement('template');
 opleiding_template.innerHTML = /* html */ `
-  <style>
-    .slider-item {
-      width: 630px;
-      padding: 20px 0 20px 30px;
-      border-radius: 10px;
-      background-color: #ffffff;
-      display: flex;
-      justify-content: center;
-      z-index: 0;
-      margin-bottom: 25px;
-    }
-    .slider-item .animation-card_content {
-      width: 100%;
-      margin-right: 26px;
-      margin-left: 26px;
-      font-family: 'Open Sans', sans-serif;
-    }
-    .slider-item .animation-card_content .animation-card_content_title {
-      color: var(--ucll-red);
-      font-size: 20pt;
-      line-height: 24px;
-      margin: 0;
-    }
-    .slider-item .animation-card_content .animation-card_content_description {
-      color: #696d74;
-      font-size: 15px;
-      font-weight: 300;
-      letter-spacing: normal;
-      line-height: 24px;
-      margin: 10px 0 0 0;
-    }
-  </style>
+<style>
+  .slider-item {
+    width: 630px;
+    padding: 20px 0 20px 30px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+    margin-bottom: 25px;
+  }
+  .slider-item .animation-card_content {
+    width: 100%;
+    margin-right: 26px;
+    margin-left: 26px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .slider-item .animation-card_content .animation-card_content_title {
+    color: var(--ucll-red);
+    font-size: 20pt;
+    line-height: 24px;
+    margin: 0;
+  }
+  .slider-item .animation-card_content .animation-card_content_description {
+    color: #696d74;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: normal;
+    line-height: 24px;
+    margin: 10px 0 0 0;
+  }
+</style>
 
-  <div id="Elektromechanica" class="slider-item">
-    <div class="animation-card_content">
-      <h4 class="animation-card_content_title title-2"><slot name="richting"></slot></h4>
-        <p class="animation-card_content_description p-2"><slot name="afstudeerrichting"></slot></p>
-    </div>
+<div id="Elektromechanica" class="slider-item">
+  <div class="animation-card_content">
+    <h4 class="animation-card_content_title title-2"><slot name="richting"></slot></h4>
+      <p class="animation-card_content_description p-2"><slot name="afstudeerrichting"></slot></p>
   </div>
+</div>
 `;
 //#endregion TEMPLATE
 

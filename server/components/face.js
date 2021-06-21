@@ -100,8 +100,7 @@ face_template.innerHTML = /*html*/`
         <!-- oog basis rechts -->
         <g>
 			<g>
-
-					<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="3786.4717" y1="3102.136" x2="4207.1616" y2="3102.136" gradientTransform="matrix(-1 0 0 1 5338.894 0)">
+				<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="3786.4717" y1="3102.136" x2="4207.1616" y2="3102.136" gradientTransform="matrix(-1 0 0 1 5338.894 0)">
 					<stop  offset="0" style="stop-color:#F2F2F2"/>
 					<stop  offset="0.3398" style="stop-color:#F0F0F0"/>
 					<stop  offset="0.5115" style="stop-color:#E8E8E8"/>
@@ -189,28 +188,21 @@ window.customElements.define('face-ʤ', class extends HTMLElement {
 		this.$svg = this._shadowRoot.querySelector('#svg');
 		this.$pupil_L = this._shadowRoot.querySelector('#pupil_L');
 		this.socket = new WebSocket('ws://essadji.be:2105');
-
-
 	}
-	// static get observedAttributes() {
-	//     return ['icon'];
-	// }
 
 	connectedCallback() {
 		this.$svg.addEventListener('click', this.handler.bind(this))
-		this.socket.addEventListener('open', (event)=> {
+		this.socket.addEventListener('open', (event) => {
 			console.log("opening socket...")
 			this.socket.send('Hello Server!');
 		});
 		this.socket.addEventListener('message', (event) => {
 			console.log('Message from server ', event.data);
 		});
-
 	}
 
 	handler(e) {
 		this.$pupil_L.classList.add("hidden")
-
 	}
 
 	attributeChangedCallback(name, oldValue, newValue) {

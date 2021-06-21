@@ -14,57 +14,54 @@ pageSelector_template.innerHTML = /* html */ `
     :host {
         background-color: var(--base);
     }
-.grid-container {
-    display:grid;
-}
-page-selector-ɮ {
-      grid-column-start: 1;
-  grid-column-end: 5;
-    grid-row-start: 1;
-  grid-row-end: 2;
-}
-camera-ɮ {
-      grid-column-start: 2;
-  grid-column-end: 4;
-    grid-row-start: 2;
-  grid-row-end: 4;
-  
-}
-lever-ɮ#eye_L {
-      grid-column-start: 1;
-  grid-column-end: 2;
-}
-lever-ɮ#eye_R {
-      grid-column-start: 4;
-  grid-column-end: 5;
-}
-lever-ɮ#pupil_L {
-      grid-column-start: 1;
-  grid-column-end: 2;
-}
-lever-ɮ#pupil_R {
-      grid-column-start: 4;
-  grid-column-end: 5;
-}
-james-ʤ {
-          grid-column-start: 2;
-  grid-column-end: 4;
-  grid-row-start: 2;
-  grid-row-end: 4;
-}
+    .grid-container {
+        display:grid;
+    }
+    page-selector-ɮ {
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    camera-ɮ {
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 4;
+    }
+    lever-ɮ#eye_L {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    lever-ɮ#eye_R {
+        grid-column-start: 4;
+        grid-column-end: 5;
+    }
+    lever-ɮ#pupil_L {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    lever-ɮ#pupil_R {
+        grid-column-start: 4;
+        grid-column-end: 5;
+    }
+    james-ʤ {
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 4;
+    }
 
 </style>
+
 <div class="grid-container">
-
-<page-selector-ɮ></page-selector-ɮ>
-<!-- <camera-ɮ></camera-ɮ> -->
-<emotion-control-ɮ id="eye_L"></emotion-control-ɮ>
-<emotion-control-ɮ id="eye_R"></emotion-control-ɮ>
-<emotion-control-ɮ id="pupil_L"></emotion-control-ɮ>
-<emotion-control-ɮ id="pupil_R"></emotion-control-ɮ>
-<james-ʤ></james-ʤ>
+    <page-selector-ɮ></page-selector-ɮ>
+    <emotion-control-ɮ id="eye_L"></emotion-control-ɮ>
+    <emotion-control-ɮ id="eye_R"></emotion-control-ɮ>
+    <emotion-control-ɮ id="pupil_L"></emotion-control-ɮ>
+    <emotion-control-ɮ id="pupil_R"></emotion-control-ɮ>
+    <james-ʤ></james-ʤ>
 </div>
-
 `;
 //#endregion TEMPLATE
 
@@ -95,6 +92,5 @@ window.customElements.define('j_con-ɮ', class extends HTMLElement {
     set content(x) {
         this.$content.innerHTML = x;
     }
-
 });
   //#endregion CLASS

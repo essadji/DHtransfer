@@ -57,15 +57,11 @@ window.customElements.define('camera-ɮ', class extends HTMLElement {
     }
 
     handler(e) {
-        // console.dir(e.target.id)
-        // console.dir(this)
         this.socket.send(e.target.id)
-
     }
 
     set content(x) {
         this.$content.innerHTML = x;
     }
-
 });
   //#endregion CLASS

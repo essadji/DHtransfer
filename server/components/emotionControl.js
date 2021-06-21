@@ -11,7 +11,6 @@ emotion_control_template.innerHTML = /* html */ `
         margin: 15px;
         color: var(--ucll-red);
     }
-
 </style>
 
 <div>
@@ -34,14 +33,12 @@ emotion_control_template.innerHTML = /* html */ `
     <g class="main-container" transform="matrix(1 0 0 1 0 0)">
         <rect x=0 y=0 width=300 height=300 fill="url(#gradient)" stroke=white stroke-weight=5 />
         <rect class="boundary" x=0 y=0 width=300 height=300 fill="url(#grid)" stroke=white stroke-weight=5 />
-
         <!-- <rect class="draggable" x="10" y="10" width="50" height="50" fill="deeppink" transform="matrix(1 0 0 1 0 0)" /> -->
         <circle class="draggable" cx="100" cy="35" r="25" fill="forestgreen" transform="matrix(1 0 0 1 0 0)" />
     </g>
 </svg>
 
 </div>
-<hr/>
 `;
 //#endregion TEMPLATE
 
@@ -67,7 +64,6 @@ window.customElements.define('emotion-control-ɮ', class extends HTMLElement {
         this.socket.addEventListener('message', event => {
             console.log('Message from server ', event.data);
         });
-
     }
 
     handler(e) {
