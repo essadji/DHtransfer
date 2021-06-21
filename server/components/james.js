@@ -1,5 +1,7 @@
 //#region IMPORTS
 import "./fullscreen.js";
+import "./studentLogin.js";
+import "./startscreen.js";
 import "./face.js";
 import "./interface.js";
 //#endregion IMPORTS
@@ -12,8 +14,11 @@ james_template.innerHTML = /* html */ `
     background: white;
   }
 </style>
+
+<startscreen-ɮ></startscreen-ɮ>
+<student-login-ɮ hidden></student-login-ɮ>
 <fullscreen-ɮ hidden></fullscreen-ɮ>
-<face-ʤ></face-ʤ>
+<face-ʤ hidden></face-ʤ>
 <interface-ʤ hidden></interface-ʤ>
 `;
 //#endregion TEMPLATE
@@ -28,6 +33,14 @@ window.customElements.define('james-ʤ', class extends HTMLElement {
     this.$face = this._shadowRoot.querySelector('face-ʤ');
     this.$interface = this._shadowRoot.querySelector('interface-ʤ');
     this.$fullscreen = this._shadowRoot.querySelector('fullscreen-ɮ');
+    this.$loginscreen = this._shadowRoot.querySelector('student-login-ɮ');
+    this.$startscreen = this._shadowRoot.querySelector('startscreen-ɮ');
+    this.$startscreen.addEventListener('click', () => {
+      this.$startscreen.hidden = true; this.$loginscreen.hidden = false;
+    });
+    this.$loginscreen.addEventListener('click', () => {
+      this.$loginscreen.hidden = true; this.$interface.hidden = false;
+    });
     this.socket = new WebSocket('ws://essadji.be:2105');
   }
 
@@ -47,10 +60,13 @@ window.customElements.define('james-ʤ', class extends HTMLElement {
       console.log('Message from server ', event.data);
       switch (event.data) {
         case 'face':
-          if (this.$face.hidden) { this.$face.hidden = false; this.$interface.hidden = true; this.$fullscreen.hidden = true; }
+          if (this.$face.hidden) { this.$face.hidden = false; this.$interface.hidden = true; this.$fullscreen.hidden = true; this.$startscreen.hidden = true; this.$loginscreen.hidden = true; }
           break;
         case 'interface':
-          if (this.$interface.hidden) { this.$interface.hidden = false; this.$face.hidden = true; this.$fullscreen.hidden = true; }
+          if (this.$interface.hidden) { this.$face.hidden = true; this.$interface.hidden = false; this.$fullscreen.hidden = true; this.$startscreen.hidden = true; this.$loginscreen.hidden = true; }
+          break;
+        case 'login':
+          if (this.$startscreen.hidden) { this.$face.hidden = true; this.$interface.hidden = true; this.$fullscreen.hidden = true; this.$startscreen.hidden = false; this.$loginscreen.hidden = true; }
           break;
       }
     });

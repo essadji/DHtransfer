@@ -18,7 +18,7 @@ interface_template.innerHTML = /* html */ `
     font-style:italic;
     color: #44474b;
     font-size: 30pt;
-    margin:0 0 10px 50px;
+    margin:0 0 10px 0;
   }
   h1{
     color: var(--ucll-red);
