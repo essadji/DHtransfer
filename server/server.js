@@ -16,7 +16,8 @@ HTTP.on('request', APP);
 wss.on('connection', function connection(ws) {
     ws.on('message', function incoming(message) {
         console.log(`received: ${message}`);
-        switch (message) {
+        let incoming = JSON.parse(message);
+        switch (incoming.payload) {
             // case 'btnTest':
             //     console.log(`I've been tested with ${message}`)
             //     break;
@@ -25,17 +26,25 @@ wss.on('connection', function connection(ws) {
             //     wss.clients.forEach(c => c.send("list requested"))
             //     break;
             case 'btnFace':
-                wss.clients.forEach(c => c.send("face"))
+                wss.clients.forEach(c => c.send(JSON.stringify({
+                    "payload": "face"
+                })))
                 break;
             case 'btnInterface':
-                wss.clients.forEach(c => c.send("interface"))
+                wss.clients.forEach(c => c.send(JSON.stringify({
+                    "payload": "interface"
+                })))
                 break;
             case 'btnLogin':
-                wss.clients.forEach(c => c.send("login"))
+                wss.clients.forEach(c => c.send(JSON.stringify({
+                    "payload": "login",
+                    "user": incoming.user,
+                    "programme": incoming.programme
+                })))
                 break;
             default:
                 ws.send(JSON.stringify({
-                    answer: 42
+                    "payload": 42
                 }));
         }
     });

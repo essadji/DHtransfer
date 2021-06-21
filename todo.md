@@ -1,21 +1,28 @@
 # TODO
-- [ ] blinking eyes
-- [X] clickthrough opleidingen
-- [X] richtingen dynamisch laden
-- [X] robot interface hosting
-- [X] control interface hosting
----
-# MAYBE
-- [ ] login (Kenny+?)
----
-# FEATURES
+
+## Hosting
+>- [X] robot interface hosting
+>- [X] control interface hosting
+
 ## Control Page
-- [ ] eye control
-- [ ] 2D controller
-- [X] page switch
+>- [ ] eye control
+>- [ ] hide modal
+>- [ ] 2D controller
+>- [X] page switch
+
 ## Face page
+>- [ ] blinking eyes
+
 ## Navigation page
-- [X] navigation clickthrough
+>- [X] richtingen dynamisch laden
+>- [X] navigation clickthrough
+
 ## Login page?
-- [ ] show name & programme
----
+>- [X] show name & programme
+
+## Modal
+>- [ ] rounded corners
+>- [ ] very slight opacity
+ 
+
+

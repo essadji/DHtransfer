@@ -71,22 +71,22 @@ window.customElements.define('j_con-ɮ', class extends HTMLElement {
         super();
         this._shadowRoot = this.attachShadow({ 'mode': 'open' });
         this._shadowRoot.appendChild(pageSelector_template.content.cloneNode(true));
-        this.socket = new WebSocket('ws://essadji.be:2105');
+        this.socket = new WebSocket('ws://localhost:2105');
     }
 
     connectedCallback() {
-        this.socket.addEventListener('open', (event) => {
+        this.socket.addEventListener('open', event => {
             console.log("opening socket...")
-            this.socket.send('Hello server, I will be your controller today.');
+            this.socket.send(JSON.stringify({"payload":'Hello server, I will be your controller today.'}));
         });
-        this.socket.addEventListener('message', function (event) {
+        this.socket.addEventListener('message', event => {
             console.log('Message from server ', event.data);
         });
 
     }
 
     handler(e) {
-        this.socket.send(e.target.id)
+        this.socket.send(JSON.stringify({"payload":e.target.id}))
     }
 
     set content(x) {

@@ -50,8 +50,8 @@ student_login_template.innerHTML = /* html */ `
 <div id="content">
     <div class="background" >
         <div class="card"  >
-            <h1>Welcome, Kenny Lacroix</h1>
-            <h4>Opleiding ELO-ICT: ICT</h4>
+            <h1>Welcome</h1>
+            <h4></h4>
         </div>
     </div>
 </div>
@@ -67,7 +67,11 @@ window.customElements.define('student-login-ɮ', class extends HTMLElement {
         this.$content = this._shadowRoot.querySelector('#content');
 
     }
-
+setUser(name,programme){
+  console.log("set called")
+  this._shadowRoot.querySelector("h1").innerHTML=name?`Welcome, ${name}`:`Welcome`;
+  this._shadowRoot.querySelector("h4").innerHTML =programme?`Opleiding ${programme}`:``;
+}
     set content(x) {
         this.$content.innerHTML = x;
     }
