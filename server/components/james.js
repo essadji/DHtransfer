@@ -41,7 +41,7 @@ window.customElements.define('james-ʤ', class extends HTMLElement {
     this.$loginscreen.addEventListener('click', () => {
       this.$loginscreen.hidden = true; this.$interface.hidden = false;
     });
-    this.socket = new WebSocket('ws://localhost:2105');
+    this.socket = new WebSocket('ws://essadji.be:2105');
   }
 
   connectedCallback() {

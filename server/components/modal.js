@@ -6,6 +6,11 @@ const modal_template = document.createElement('template');
 modal_template.innerHTML = /* html */ `
 <style>
     /* Modal Header */
+    p {
+        font-size: 40pt;
+        font-family: 'Open Sans', sans-serif;
+        text-align: center;
+    }
     .modal-header {
         padding: 2px 16px;
         background-color: var(--ucll-red);
@@ -26,6 +31,10 @@ modal_template.innerHTML = /* html */ `
         animation-name: animatetop;
         animation-duration: 0.4s;
     }
+    slot {
+        text-transform: uppercase;
+        color: var(--ucll-red);
+    }
     /* Add Animation */
     @keyframes animatetop {
         from {top: -300px; opacity: 0}
@@ -38,7 +47,7 @@ modal_template.innerHTML = /* html */ `
         <span class="close">&times;</span>
     </div>
     <div class="modal-body">
-        <p>Onderweg naar <slot name="afstudeerrichting"></slot>. Gelieve mij te volgen!</p>
+        <p>... onderweg naar <slot name="afstudeerrichting"></slot> ...</p>
     </div>
 </div>
 `;

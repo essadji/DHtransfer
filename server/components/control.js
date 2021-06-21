@@ -71,7 +71,7 @@ window.customElements.define('j_con-ɮ', class extends HTMLElement {
         super();
         this._shadowRoot = this.attachShadow({ 'mode': 'open' });
         this._shadowRoot.appendChild(pageSelector_template.content.cloneNode(true));
-        this.socket = new WebSocket('ws://localhost:2105');
+        this.socket = new WebSocket('ws://essadji.be:2105');
     }
 
     connectedCallback() {

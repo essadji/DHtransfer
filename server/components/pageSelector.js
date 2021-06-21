@@ -44,7 +44,7 @@ window.customElements.define('page-selector-ɮ', class extends HTMLElement {
         this._shadowRoot = this.attachShadow({ 'mode': 'open' });
         this._shadowRoot.appendChild(emotion_control_template.content.cloneNode(true));
         this.$test = this._shadowRoot.querySelectorAll('button');
-        this.socket = new WebSocket('ws://localhost:2105');
+        this.socket = new WebSocket('ws://essadji.be:2105');
     }
 
     connectedCallback() {
