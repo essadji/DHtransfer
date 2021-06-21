@@ -37,7 +37,7 @@ modal_template.innerHTML = /* html */ `
             <span class="close">&times;</span>
         </div>
         <div class="modal-body">
-            <p>Onderweg naar <slot name="afstudeerrichting">. Volg mij!</p>
+            <p>Onderweg naar <slot name="afstudeerrichting"></slot>. Gelieve mij te volgen!</p>
         </div>
     </div>
 `;
