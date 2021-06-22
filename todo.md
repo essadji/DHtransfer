@@ -4,7 +4,7 @@
 >- [X] robot interface hosting
 >- [X] control interface hosting
 
-## Control Page
+## Control page
 >- [ ] eye control
 >- [ ] hide modal
 >- [ ] 2D controller
@@ -17,12 +17,9 @@
 >- [X] richtingen dynamisch laden
 >- [X] navigation clickthrough
 
-## Login page?
+## Login page
 >- [X] show name & programme
 
 ## Modal
 >- [ ] rounded corners
 >- [ ] very slight opacity
- 
-
-

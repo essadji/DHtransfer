@@ -16,7 +16,9 @@ HTTP.on('request', APP);
 wss.on('connection', function connection(ws) {
     ws.on('message', function incoming(message) {
         console.log(`received: ${message}`);
-        let incoming = JSON.parse(message);
+        let incoming = {"payload":"bad or no payload"}
+        if(!JSON.parse(message)){console.warn("bad message !!!!!!!!!!!")}
+        else {incoming = JSON.parse(message);}
         switch (incoming.payload) {
             // case 'btnTest':
             //     console.log(`I've been tested with ${message}`)

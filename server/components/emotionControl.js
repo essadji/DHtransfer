@@ -59,7 +59,7 @@ window.customElements.define('emotion-control-ɮ', class extends HTMLElement {
     connectedCallback() {
         this.socket.addEventListener('open', event => {
             console.log("opening socket...")
-            this.socket.send('Hello server, I will be your controller today.');
+            this.socket.send(JSON.stringify({"payload":"Hello server, I'll control some part of James today."}));
         });
         this.socket.addEventListener('message', event => {
             console.log('Message from server ', event.data);
