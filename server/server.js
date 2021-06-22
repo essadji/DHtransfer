@@ -15,23 +15,20 @@ HTTP.on('request', APP);
 
 wss.on('connection', function connection(ws) {
     ws.on('message', function incoming(message) {
-        // console.log(`received: ${message}`);
+        console.log(`received: ${message}`);
         let incoming;
         try {
             incoming = JSON.parse(message)
         } catch (error) {
             console.warn("PAYLOAD ERROR:")
             console.dir(error)
-            incoming = {"payload":"illegal payload"}
+            incoming = { "payload": "illegal payload" }
         }
         switch (incoming.payload) {
-            // case 'btnTest':
-            //     console.log(`I've been tested with ${message}`)
-            //     break;
-            // case 'btnClients':
-            //     console.log(wss.clients)
-            //     wss.clients.forEach(c => c.send("list requested"))
-            //     break;
+            case 'btnClients':
+                console.log(wss.clients)
+                //wss.clients.forEach(c => c.send("list requested"))
+                break;
             case 'btnFace':
                 wss.clients.forEach(c => c.send(JSON.stringify({
                     "payload": "face"
@@ -57,6 +54,12 @@ wss.on('connection', function connection(ws) {
                     "y": incoming.y
                 })))
                 break;
+            case 'selectBackground':
+                wss.clients.forEach(c => c.send(JSON.stringify({
+                    "payload": "background",
+                    "value": incoming.value
+                })))
+                break;
             default:
                 ws.send(JSON.stringify({
                     "payload": incoming.payload
@@ -66,5 +69,8 @@ wss.on('connection', function connection(ws) {
 });
 
 HTTP.listen(PORT, () => {
-    console.log(`http/ws server listening on ${PORT || process.env.PORT}`);
+    console.log(`about to set up a Node HTTP and WS server on port ${PORT || process.env.PORT} ...`);
+    console.log(">>> \x1b[32mserver up and running\x1b[0m\n");
+    console.log(`\x1b[45m  =================  \x1b[0m\n`);
+    console.log(`system messages ...`);
 });

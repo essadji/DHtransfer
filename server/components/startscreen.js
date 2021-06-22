@@ -24,7 +24,7 @@ startscreen_template.innerHTML = /* html */ `
     margin:10px 10px 0 10px;
   }
   #content {
-    background: url('../images/diepenbeek2020_header_0.png') no-repeat center center fixed;
+    background: url('../images/panorama.png') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -60,21 +60,24 @@ startscreen_template.innerHTML = /* html */ `
 
 //#region CLASS
 window.customElements.define('startscreen-ɮ', class extends HTMLElement {
-    constructor() {
-        super();
-        this._shadowRoot = this.attachShadow({ 'mode': 'open' });
-        this._shadowRoot.appendChild(startscreen_template.content.cloneNode(true));
-        this.$content = this._shadowRoot.querySelector('#content');
-        this.$card = this._shadowRoot.querySelector('#card');
-        this.$card.addEventListener("click", () => {
+  constructor() {
+    super();
+    this._shadowRoot = this.attachShadow({ 'mode': 'open' });
+    this._shadowRoot.appendChild(startscreen_template.content.cloneNode(true));
+    this.$content = this._shadowRoot.querySelector('#content');
+    this.$card = this._shadowRoot.querySelector('#card');
+    this.$card.addEventListener("click", () => {
 
-        });
+    });
 
-    }
-
-    set content(x) {
-        this.$content.innerHTML = x;
-    }
+  }
+  setBackground(url) {
+    this.$content.style.backgroundImage = `url(${url})`;
+  }
+  set content(x) {
+    this.$content.innerHTML = x;
+  }
 
 });
-  //#endregion CLASS
+
+//#endregion CLASS

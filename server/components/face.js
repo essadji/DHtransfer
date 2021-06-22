@@ -266,10 +266,10 @@ window.customElements.define('face-ʤ', class extends HTMLElement {
 						this.browerR(incoming.y)
 						break;
 					case "pupil_L":
-						console.log("pupil_L")
+						// console.log("pupil_L")
 						break;
 					case "pupil_R":
-						console.log("pupil_R")
+						// console.log("pupil_R")
 						break;
 
 				}

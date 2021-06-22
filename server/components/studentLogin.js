@@ -24,7 +24,7 @@ student_login_template.innerHTML = /* html */ `
     margin:10px 10px 0 10px;
   }
   #content {
-    background: url('../images/diepenbeek2020_header_0.png') no-repeat center center fixed;
+    background: url('../images/panorama.png') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -75,6 +75,9 @@ setUser(name,programme){
     set content(x) {
         this.$content.innerHTML = x;
     }
+  setBackground(url) {
+    this.$content.style.backgroundImage = `url(${url})`;
+  }
 
 });
   //#endregion CLASS

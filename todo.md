@@ -5,15 +5,14 @@
 >- [X] control interface hosting
 
 ## Control page
->- [ ] eye control
->- [ ] hide modal
->- [ ] 2D controller
+>- [X] 2D controller
 >- [X] page switch
 
 ## Main page
 >- [ ] integrate fullscreen button
 
 ## Face page
+>- [ ] pupil control
 >- [ ] blinking eyes
 
 ## Navigation page
@@ -24,8 +23,10 @@
 >- [X] show name & programme
 
 ## Modal
+>- [ ] hide modal
 >- [ ] rounded corners
 >- [ ] very slight opacity
 
-## Meta
->- [ ] provide debug environment (URL&logs)
+## MAYBE ???
+>- [ ] add backgrounds
+>- [ ] hide 2D controls when showing interface

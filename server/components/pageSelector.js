@@ -26,12 +26,16 @@ emotion_control_template.innerHTML = /* html */ `
 </style>
 
 <div>
-    <h2>Select page to display:</h2>
     <button id="btnClients">ENUMERATE CLIENTS</button>
     <button id="btnInterface">SHOW INTERFACE</button>
     <button id="btnFace">SHOW JAMES</button>
     <button id="btnLogin">SHOW LOGIN</button>name<input type="text" id="user" />programme<input type="text" id="programme" />
     <button id="btnNodal">CLOSE MODALS</button>
+    <select>
+    <option value="../images/toren.jpg">toren</option>
+    <option value="../images/panorama.png" selected>panorama</option>
+    <option>
+    </select>
 </div>
 <hr/>
 `;
@@ -45,19 +49,27 @@ window.customElements.define('page-selector-ɮ', class extends HTMLElement {
         this._shadowRoot.appendChild(emotion_control_template.content.cloneNode(true));
         this.$test = this._shadowRoot.querySelectorAll('button');
         this.socket = new WebSocket('ws://essadji.be:2105');
+        this.$select = this._shadowRoot.querySelector("select");
     }
-
+    
     connectedCallback() {
+        this.$select.addEventListener("change",this.backer.bind(this))
         this.$test.forEach(x => { x.addEventListener('click', this.handler.bind(this)) });
         this.socket.addEventListener('open', (event) => {
             console.log("opening socket for page selector ...")
-            this.socket.send(JSON.stringify({"payload":'Hello server, I will be your controller today.'}));
-        });
-        this.socket.addEventListener('message', function (event) {
-            console.log('Message from server ', event.data);
+            this.socket.send(JSON.stringify({"payload":'Hello server, I will be swapping pages today.'}));
         });
 
+        // this.socket.addEventListener('message', function (event) {
+        //     console.log('Message from server ', event.data);
+        // });
+
     }
+
+backer(e){
+    console.log("select change!")
+    this.socket.send(JSON.stringify({ "payload": "selectBackground","value":e.target.value }));
+}
 
     handler(e) {
         this.socket.send(JSON.stringify({

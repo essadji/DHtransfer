@@ -58,7 +58,14 @@ window.customElements.define('james-ʤ', class extends HTMLElement {
     });
     this.socket.addEventListener('message', (event) => {
       console.log('Message from server ', event.data);
-      let incoming = JSON.parse(event.data);
+      let incoming;
+      try {
+        incoming = JSON.parse(event.data)
+      } catch (error) {
+        console.warn("PAYLOAD ERROR:")
+        console.dir(error)
+        incoming = { "payload": "illegal payload" }
+      }
       switch (incoming.payload) {
         case 'face':
           if (this.$face.hidden) { this.$face.hidden = false; this.$interface.hidden = true; this.$fullscreen.hidden = true; this.$startscreen.hidden = true; this.$loginscreen.hidden = true; }
@@ -66,6 +73,11 @@ window.customElements.define('james-ʤ', class extends HTMLElement {
         case 'interface':
           if (this.$interface.hidden) { this.$face.hidden = true; this.$interface.hidden = false; this.$fullscreen.hidden = true; this.$startscreen.hidden = true; this.$loginscreen.hidden = true; }
           break;
+        case 'background':
+        this.$startscreen.setBackground(incoming.value);  
+        this.$loginscreen.setBackground(incoming.value);  
+        this.$interface.setBackground(incoming.value);  
+        break;
         case 'login':
           this.$loginscreen.setUser(incoming.user, incoming.programme)
           if (this.$startscreen.hidden) { this.$face.hidden = true; this.$interface.hidden = true; this.$fullscreen.hidden = true; this.$startscreen.hidden = false; this.$loginscreen.hidden = true; }
