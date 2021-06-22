@@ -238,87 +238,86 @@ BROW height <input id="b_L" type="range" orient="vertical" id="RL" min="0" max="
 
 //region CLASS
 window.customElements.define('facing-ʤ', class extends HTMLElement {
-	constructor() {
-		super();
-		this._shadowRoot = this.attachShadow({ 'mode': 'open' });
-		this._shadowRoot.appendChild(facing_template.content.cloneNode(true));
-		this.$svg = this._shadowRoot.querySelector('svg');
-		this.$pupil_L = this._shadowRoot.querySelector('#pupil_L');
-		this.socket = new WebSocket('ws://essadji.be:2105');
-		this.$test = this._shadowRoot.querySelector("#test")
-		this.$sliderL = this._shadowRoot.querySelector("#reL")
-		this.$sliderR = this._shadowRoot.querySelector("#reR")
-		this.$sliderB_L = this._shadowRoot.querySelector("#b_L")
-		this.$sliderB_R = this._shadowRoot.querySelector("#b_R")
-		this.$browL = this._shadowRoot.querySelector("#brow_L")
-		this.$browR = this._shadowRoot.querySelector("#brow_R")
-		this.$rotL = this._shadowRoot.querySelector("#Ir_L")
-		this.$rotR = this._shadowRoot.querySelector("#Ir_R")
+    constructor() {
+        super();
+        this._shadowRoot = this.attachShadow({ 'mode': 'open' });
+        this._shadowRoot.appendChild(facing_template.content.cloneNode(true));
+        this.$svg = this._shadowRoot.querySelector('svg');
+        this.$pupil_L = this._shadowRoot.querySelector('#pupil_L');
+        this.socket = new WebSocket('ws://essadji.be:2105');
+        this.$test = this._shadowRoot.querySelector("#test")
+        this.$sliderL = this._shadowRoot.querySelector("#reL")
+        this.$sliderR = this._shadowRoot.querySelector("#reR")
+        this.$sliderB_L = this._shadowRoot.querySelector("#b_L")
+        this.$sliderB_R = this._shadowRoot.querySelector("#b_R")
+        this.$browL = this._shadowRoot.querySelector("#brow_L")
+        this.$browR = this._shadowRoot.querySelector("#brow_R")
+        this.$rotL = this._shadowRoot.querySelector("#Ir_L")
+        this.$rotR = this._shadowRoot.querySelector("#Ir_R")
 
 
-	}
-	// static get observedAttributes() {
-	//     return ['icon'];
-	// }
+    }
+    // static get observedAttributes() {
+    //     return ['icon'];
+    // }
 
-	connectedCallback() {
-		this.$svg.addEventListener('click', this.handler.bind(this))
-		this.socket.addEventListener('open', (event)=> {
-			console.log("opening socket...")
-			this.socket.send('Hello Server!');
-		});
-		this.socket.addEventListener('message', (event) => {
-			console.log('Message from server ', event.data);
-		});
-		this.$test.addEventListener('click', this.svger.bind(this))
-		this.$sliderL.addEventListener('input', this.rangerL.bind(this))
-		this.$sliderR.addEventListener('change', this.rangerR.bind(this))
-		this.$sliderB_L.addEventListener('input', this.browerL.bind(this))
-		this.$sliderB_R.addEventListener('input', this.browerR.bind(this))
-		
+    connectedCallback() {
+        this.$svg.addEventListener('click', this.handler.bind(this))
+        this.socket.addEventListener('open', (event) => {
+            // console.log("opening socket...")
+            this.socket.send(JSON.stringify({ "payload": "I'm a temporary schmuck; I shouldn't be around ... " }));
+        });
+        this.socket.addEventListener('message', (event) => {
+            // console.log('Message from server ', event.data);
+        });
+        this.$test.addEventListener('click', this.svger.bind(this))
+        this.$sliderL.addEventListener('input', this.rangerL.bind(this))
+        this.$sliderR.addEventListener('change', this.rangerR.bind(this))
+        this.$sliderB_L.addEventListener('input', this.browerL.bind(this))
+        this.$sliderB_R.addEventListener('input', this.browerR.bind(this))
 
-	}
-browerL(e){
-	console.dir(e.currentTarget.value)
-	this.$browL.setAttribute("transform", `translate(0,${100-e.currentTarget.value})`);
 
-}
-browerR(e){
-	console.dir(e.currentTarget.value)
-	this.$browR.setAttribute("transform", `translate(0,${100-e.currentTarget.value})`);
+    }
+    browerL(e) {
+        // console.dir(e.currentTarget.value)
+        this.$browL.setAttribute("transform", `translate(0,${100 - e.currentTarget.value})`);
 
-}
-rangerL(e){
-	console.dir(e.currentTarget.value)
-	this.$rotL.setAttribute("transform", `rotate(${e.currentTarget.value},820,3410)`);
+    }
+    browerR(e) {
+        // console.dir(e.currentTarget.value)
+        this.$browR.setAttribute("transform", `translate(0,${100 - e.currentTarget.value})`);
 
-}
+    }
+    rangerL(e) {
+        // console.dir(e.currentTarget.value)
+        this.$rotL.setAttribute("transform", `rotate(${e.currentTarget.value},820,3410)`);
 
-rangerR(e){
-	console.dir(e.currentTarget.value)
-	this.$rotR.setAttribute("transform", `rotate(${e.currentTarget.value},1390,3400)`);
-}
+    }
 
-	svger(e){
-		this.$sliderB_R.value=170
-console.log("clikkk")
-		this.$pupil_L.setAttribute('transform', 'translate(30,100)');
-	}
+    rangerR(e) {
+        // console.dir(e.currentTarget.value)
+        this.$rotR.setAttribute("transform", `rotate(${e.currentTarget.value},1390,3400)`);
+    }
 
-	handler(e) {
-		this.$pupil_L.classList.add("hidden")
+    svger(e) {
+        this.$sliderB_R.value = 170;
+        this.$pupil_L.setAttribute('transform', 'translate(30,100)');
+    }
 
-	}
+    handler(e) {
+        this.$pupil_L.classList.add("hidden")
 
-	attributeChangedCallback(name, oldValue, newValue) {
-		switch (name) {
-			case 'icon':
-				let use = document.createElementNS("http://www.w3.org/2000/svg", "use");
-				use.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", `SVG/${newValue}.svg#icon`);
-				this.$svg.appendChild(use)
-				break;
-		}
-	}
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        switch (name) {
+            case 'icon':
+                let use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+                use.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", `SVG/${newValue}.svg#icon`);
+                this.$svg.appendChild(use)
+                break;
+        }
+    }
 
 });
 //#endregion CLASS

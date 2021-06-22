@@ -89,7 +89,7 @@
     //         .translate(point.x, point.y).scale(scaleStep).translate(-point.x, -point.y); let
     //             newZoomMatrix = currentZoomMatrix.multiply(matrix);
     //     container.transform.baseVal.initialize(svg.createSVGTransformFromMatrix(newZoomMatrix));
-    //     console.log("scale", scale); let t = newZoomMatrix; console.log("zoomMatrix", t.a, t.b, t.c, t.d, t.e, t.f);
+    //     let t = newZoomMatrix; console.log("zoomMatrix", t.a, t.b, t.c, t.d, t.e, t.f);
     // }
     document.querySelector('svg .main-container').addEventListener('mousedown', beginDrag);
     // document.querySelector('svg .main-container').addEventListener('mousewheel', zoom);

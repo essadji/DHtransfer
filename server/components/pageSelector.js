@@ -50,7 +50,7 @@ window.customElements.define('page-selector-ɮ', class extends HTMLElement {
     connectedCallback() {
         this.$test.forEach(x => { x.addEventListener('click', this.handler.bind(this)) });
         this.socket.addEventListener('open', (event) => {
-            console.log("opening socket...")
+            console.log("opening socket for page selector ...")
             this.socket.send(JSON.stringify({"payload":'Hello server, I will be your controller today.'}));
         });
         this.socket.addEventListener('message', function (event) {

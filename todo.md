@@ -10,6 +10,9 @@
 >- [ ] 2D controller
 >- [X] page switch
 
+## Main page
+>- [ ] integrate fullscreen button
+
 ## Face page
 >- [ ] blinking eyes
 
@@ -23,3 +26,6 @@
 ## Modal
 >- [ ] rounded corners
 >- [ ] very slight opacity
+
+## Meta
+>- [ ] provide debug environment (URL&logs)

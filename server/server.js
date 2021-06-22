@@ -15,7 +15,7 @@ HTTP.on('request', APP);
 
 wss.on('connection', function connection(ws) {
     ws.on('message', function incoming(message) {
-        console.log(`received: ${message}`);
+        // console.log(`received: ${message}`);
         let incoming;
         try {
             incoming = JSON.parse(message)
@@ -47,6 +47,14 @@ wss.on('connection', function connection(ws) {
                     "payload": "login",
                     "user": incoming.user,
                     "programme": incoming.programme
+                })))
+                break;
+            case 'move':
+                wss.clients.forEach(c => c.send(JSON.stringify({
+                    "payload": "move",
+                    "target": incoming.target,
+                    "x": incoming.x,
+                    "y": incoming.y
                 })))
                 break;
             default:

@@ -53,8 +53,8 @@ window.customElements.define('james-ʤ', class extends HTMLElement {
       if (this.$face.hidden) { this.$face.hidden = false; this.$interface.hidden = true; this.$fullscreen.hidden = true; }
     });
     this.socket.addEventListener('open', (event) => {
-      console.log("opening socket for master component...")
-      this.socket.send(JSON.stringify({"payload":'Hello server, I\'m a master component; At your service ...'}));
+      console.log("opening socket for James ...")
+      this.socket.send(JSON.stringify({"payload":"Hello server, I'm James, at your service."}));
     });
     this.socket.addEventListener('message', (event) => {
       console.log('Message from server ', event.data);
