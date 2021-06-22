@@ -24,8 +24,8 @@
 >- [X] show name & programme
 
 ## Modal
->- [ ] rounded corners
->- [ ] very slight opacity
+>- [X] rounded corners
+>- [X] very slight opacity
 
 ## Meta
 >- [ ] provide debug environment (URL&logs)
