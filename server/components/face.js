@@ -246,7 +246,7 @@ window.customElements.define('face-ʤ', class extends HTMLElement {
 		// this.$svg.addEventListener('click', this.handler.bind(this))
 		this.socket.addEventListener('open', (event) => {
 			console.log("opening socket...")
-			this.socket.send(JSON.stringify({"payload":"Hello Server, I'm James's face ..."}));
+			this.socket.send(JSON.stringify({ "payload": "Hello Server, I'm James's face ..." }));
 		});
 		this.socket.addEventListener('message', (event) => {
 			let incoming;
@@ -262,7 +262,7 @@ window.customElements.define('face-ʤ', class extends HTMLElement {
 					case "eye_L":
 						this.browerL(incoming.y)
 						break;
-						case "eye_R":
+					case "eye_R":
 						this.browerR(incoming.y)
 						break;
 					case "pupil_L":
@@ -280,7 +280,7 @@ window.customElements.define('face-ʤ', class extends HTMLElement {
 	}
 
 	browerL(e) {
-		this.$browL.setAttribute("transform", `translate(0,${(17*(e/30))-70})`);
+		this.$browL.setAttribute("transform", `translate(0,${(17 * (e / 30)) - 70})`);
 
 	}
 	browerR(e) {

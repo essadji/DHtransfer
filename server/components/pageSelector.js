@@ -29,7 +29,7 @@ emotion_control_template.innerHTML = /* html */ `
     <button id="btnClients">ENUMERATE CLIENTS</button>
     <button id="btnInterface">SHOW INTERFACE</button>
     <button id="btnFace">SHOW JAMES</button>
-    <button id="btnLogin">SHOW LOGIN</button>name<input type="text" id="user" />programme<input type="text" id="programme" />
+    <button id="btnLogin">INITIATE LOGIN FOR:</button>&nbsp;name&nbsp;<input type="text" id="user" />&nbsp;programme&nbsp;<input type="text" id="programme" />
     <button id="btnNodal">CLOSE MODALS</button>
     <select>
     <option value="../images/toren.jpg">toren</option>

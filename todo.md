@@ -9,7 +9,7 @@
 >- [X] page switch
 
 ## Main page
->- [ ] integrate fullscreen button
+>- [X] integrate fullscreen button
 
 ## Face page
 >- [ ] pupil control
@@ -23,10 +23,14 @@
 >- [X] show name & programme
 
 ## Modal
->- [ ] hide modal
->- [ ] rounded corners
->- [ ] very slight opacity
+>- [X] rounded corners
+>- [X] very slight opacity
 
 ## MAYBE ???
->- [ ] add backgrounds
->- [ ] hide 2D controls when showing interface
+>- [ ] hide modal
+>- [X] background swapping
+>- [ ] add background options
+>- [ ] hide 2D controls when showing interface;
+>- [ ] clean fullscreen component
+>- [ ] refactor (face movement methods, among others)
+
