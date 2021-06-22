@@ -20,8 +20,9 @@ wss.on('connection', function connection(ws) {
         try {
             incoming = JSON.parse(message)
         } catch (error) {
-            console.warn(error)
-            incoming = {"payload":"bad format !!!!!"}
+            console.warn("PAYLOAD ERROR:")
+            console.dir(error)
+            incoming = {"payload":"illegal payload"}
         }
         switch (incoming.payload) {
             // case 'btnTest':
@@ -50,7 +51,7 @@ wss.on('connection', function connection(ws) {
                 break;
             default:
                 ws.send(JSON.stringify({
-                    "payload": 42
+                    "payload": incoming.payload
                 }));
         }
     });
