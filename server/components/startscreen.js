@@ -12,7 +12,7 @@ startscreen_template.innerHTML = /* html */ `
     font-family: 'Open Sans', sans-serif;
     }
   h4{
-    font-family: 'Kaushan Script', cursive;
+    /* font-family: 'Kaushan Script', cursive; */
     font-style:italic;
     color: #44474b;
     font-size: 20pt;
@@ -50,7 +50,7 @@ startscreen_template.innerHTML = /* html */ `
 <div id="content">
     <div class="background" >
         <div id="card" class="card">
-            <h1>Ik ben James, Kan ik u helpen?</h1>
+            <h1>Ik ben James, kan ik u helpen?</h1>
             <h4>Raak het scherm aan om de tour te beginnen</h4>
         </div>
     </div>

@@ -14,7 +14,7 @@ interface_template.innerHTML = /* html */ `
     font-family: 'Open Sans', sans-serif;
     }
   h4{
-    font-family: 'Kaushan Script', cursive;
+    /* font-family: 'Kaushan Script', cursive; */
     font-style:italic;
     color: #44474b;
     font-size: 30pt;

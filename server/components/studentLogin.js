@@ -12,7 +12,7 @@ student_login_template.innerHTML = /* html */ `
     font-family: 'Open Sans', sans-serif;
     }
   h4{
-    font-family: 'Kaushan Script', cursive;
+    /* font-family: 'Kaushan Script', cursive; */
     font-style:italic;
     color: #44474b;
     font-size: 20pt;
@@ -69,8 +69,8 @@ window.customElements.define('student-login-ɮ', class extends HTMLElement {
     }
 setUser(name,programme){
   console.log("set called")
-  this._shadowRoot.querySelector("h1").innerHTML=name?`Welcome, ${name}`:`Welcome`;
-  this._shadowRoot.querySelector("h4").innerHTML =programme?`Opleiding ${programme}`:``;
+  this._shadowRoot.querySelector("h1").innerHTML=name?`HALLO,&nbsp;${name}`:`Hallo!`;
+  this._shadowRoot.querySelector("h4").innerHTML =programme?`Opleiding: ${programme}`:``;
 }
     set content(x) {
         this.$content.innerHTML = x;
