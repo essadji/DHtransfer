@@ -32,7 +32,7 @@ emotion_control_template.innerHTML = /* html */ `
         <rect width=300 height=300 fill="url(#gradient)" stroke=white stroke-weight=5 />
         <rect class="boundary" width=300 height=300 fill="url(#grid)" stroke=white stroke-weight=5 />
         <!-- <rect class="draggable" x="10" y="10" width="50" height="50" fill="deeppink" transform="matrix(1 0 0 1 0 0)" /> -->
-        <circle class="draggable" cx="100" cy="123.53" r="25" fill="forestgreen" transform="matrix(1 0 0 1 0 0)" />
+        <circle class="draggable" cx="150" cy="123.53" r="25" fill="forestgreen" transform="matrix(1 0 0 1 0 0)" />
     </g>
 </svg>
 
