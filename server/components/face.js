@@ -3,7 +3,7 @@ const face_template = document.createElement('template');
 face_template.innerHTML = /*html*/`
   <style>
       div {
-        width:50%;
+        width:80%;
         margin:auto;
       }
 	  .st0{fill:url(#SVGID_1_);}

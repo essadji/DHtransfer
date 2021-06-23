@@ -7,7 +7,7 @@ modal_template.innerHTML = /* html */ `
 <style>
     /* Modal Header */
     p {
-        font-size: 40pt;
+        font-size: 36pt;
         font-family: 'Open Sans', sans-serif;
         text-align: center;
     }
@@ -20,7 +20,7 @@ modal_template.innerHTML = /* html */ `
     
     /* Modal Body */
     .modal-body {
-        padding: 2px 16px;
+        padding: 2px 10px;
     }
     
     /* Modal Content */
@@ -49,7 +49,7 @@ modal_template.innerHTML = /* html */ `
         <span class="close">&times;</span>
     </div>
     <div class="modal-body">
-        <p>... onderweg naar <slot name="afstudeerrichting"></slot> ...</p>
+        <p>onderweg naar <slot name="afstudeerrichting"></slot></p>
     </div>
 </div>
 `;
